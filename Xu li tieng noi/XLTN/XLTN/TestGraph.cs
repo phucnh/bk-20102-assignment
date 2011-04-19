@@ -50,49 +50,9 @@ namespace XLTN
             for (int i = 0; i < file.WaveData.NumSamples; i++)
             {
                 double val = file.WaveData[i];
-                double x = (double)((double)i / (double)(file.WaveFmt.SamplesPerSec / 1000));
+                double x = (double)((double)i / (double)(file.WaveFmt.SamplesPerSec)*1000);
                 double y = val;
 
-                list.Add(x, y);
-            }
-
-            return list;
-        }
-
-        protected void DrawEngeryGraph()
-        {
-            GraphPane graphPane = zedGraphControl.GraphPane;
-            graphPane.Clone();
-            graphPane.XAxis.Title.Text = "Time";
-            graphPane.YAxis.Title.Text = "Amplitude";
-
-            PointPairList list = ConvertEnegryToPointPairList(waveFile);
-
-            if (list == null) return;
-
-            LineItem curve = graphPane.AddCurve("Curve", list, Color.Blue, SymbolType.None);
-            curve.Line.Width = 2.0F;
-            zedGraphControl.AxisChange();
-        }
-
-        private PointPairList ConvertEnegryToPointPairList(AudioUtils.WaveFile file)
-        {
-            if (file == null) return null;
-
-            PointPairList list = new PointPairList();
-
-            double height = zedGraphControl.Height / 4;
-
-            for (int i = 0; i < file.WaveData.NumSamples; i++)
-            {
-                double val = Utility.CalculateEnegryAtN(file.WaveData[i]);
-
-                if (val == 0) continue;
-
-                double x = (double)((double)i / (double)(file.WaveFmt.SamplesPerSec / 1000));
-                double y = val;
-
-                list.Add(x, y);
                 list.Add(x, y);
             }
 
@@ -108,9 +68,51 @@ namespace XLTN
                 waveFile.Read();
                 //isDraw = true;
 
-                DrawGraph();
+                //DrawGraph();
                 DrawEngeryGraph();
             }
         }
+
+        protected void DrawEngeryGraph()
+        {
+            HammingWindow hammingWindow = new HammingWindow(Parameters.HAMMING_WINDOW_WIDE);
+                Processor processor = new Processor(waveFile, hammingWindow);
+
+                processor.Process();
+
+            GraphPane graphPane = zedGraphControl.GraphPane;
+            graphPane.Clone();
+            graphPane.XAxis.Title.Text = "Time";
+            graphPane.YAxis.Title.Text = "Amplitude";
+
+            PointPairList list = ConvertEnegryToPointPairList(processor.enegryArray.ToArray());
+
+            if (list == null) return;
+
+            LineItem curve = graphPane.AddCurve("Curve", list, Color.Red, SymbolType.None);
+            curve.Line.Width = 2.0F;
+            //curve.Line.Fill = new Fill(Color.White, Color.Red, 45F);
+            zedGraphControl.AxisChange();
+        }
+
+        protected PointPairList ConvertEnegryToPointPairList(double[] array)
+        {
+
+            PointPairList list = new PointPairList();
+
+            double height = zedGraphControl.Height / 4;
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                double val = array[i];
+                //double x = (double)((double)i / (double)(file.WaveFmt.SamplesPerSec)*1000);
+                double y = val;
+
+                list.Add(i, y);
+            }
+
+            return list;
+        }
+
     }
 }

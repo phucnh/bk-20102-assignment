@@ -15,9 +15,33 @@ namespace XLTN
             set { wide = value; }
         }
 
-        public double CaculateN(uint n)
+        private HammingWindow()
+        { }
+
+        public HammingWindow(uint wide)
+            : this()
         {
-            return (double)(0.54 - 0.46 * Math.Cos(2*Math.PI*(double)(n/Wide)));
+            this.Wide = wide;
+        }
+
+        public float[] CalculateData()
+        {
+            float[] result = new float[Wide];
+            //float[] value = new float[Wide];
+
+            for (uint i = 0; i < Wide; i++)
+            {
+                //value[i] = CaculateN(i);
+                result[i] = CaculateN(i);
+            }
+
+            return result;
+        }
+
+
+        public float CaculateN(uint n)
+        {
+            return (float)(0.54 - 0.46 * Math.Cos(2 * 90 * ((float)n / (Wide - 1))));
         }
     }
 }

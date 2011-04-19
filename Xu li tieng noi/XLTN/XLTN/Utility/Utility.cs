@@ -7,7 +7,7 @@ namespace XLTN
 {
     public class Utility
     {
-        public static int[] Convolution(byte[] source1, byte[] source2)
+        public static int[] Convolution(short[] source1, short[] source2)
         {
             int n = Math.Min(source1.Length, source2.Length);
             int[] result = new int[n];
@@ -16,7 +16,7 @@ namespace XLTN
             {
                 for (int j = 0; j <= n; j++)
                 {
-                    byte s1, s2;
+                    short s1, s2;
 
                     if (j >= source1.Length) s1 = 0;
                     else s1 = source1[j];
@@ -31,14 +31,40 @@ namespace XLTN
             return result;
         }
 
-        public static double[] CalculateEnegry(byte[] source)
+        public static double[] MultipleSignal(short[] source1, float[] source2)
         {
-            int length = source.Length;
+            int length = Math.Min(source1.Length, source2.Length);
             double[] result = new double[length];
 
             for (int i = 0; i < length; i++)
             {
-                result[i] =(double) source[i] * source[i];
+                result[i] = source1[i]*source2[i];
+            }
+
+            return result;
+        }
+
+        public static double CalculateEnegry(short[] source)
+        {
+            int length = source.Length;
+            double result = 0.0d;
+
+            for (int i = 0; i < length; i++)
+            {
+                result +=(double) source[i] * source[i];
+            }
+
+            return result;
+        }
+
+        public static double CalculateEnegry(double[] source)
+        {
+            int length = source.Length;
+            double result = 0.0d;
+
+            for (int i = 0; i < length; i++)
+            {
+                result += (double)source[i] * source[i];
             }
 
             return result;

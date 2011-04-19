@@ -191,6 +191,11 @@ namespace AudioUtils
 				get { return m_NumSamples; }
 			}
 
+            public Int16[] ConvertToArray()
+            {
+                return m_Data;
+            }
+
 			private byte[]			m_DataID;
 			private uint			m_DataSize;
 			private Int16[]			m_Data;
@@ -284,6 +289,11 @@ namespace AudioUtils
         {
             get { return m_Data; }
             set { m_Data = value; }
+        }
+
+        public Int16[] ConvertToArray()
+        {
+            return m_Data.ConvertToArray();
         }
 
         public Fmt WaveFmt
