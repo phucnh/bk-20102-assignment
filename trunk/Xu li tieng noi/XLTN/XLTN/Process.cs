@@ -57,6 +57,6 @@ namespace XLTN
     {
         public static uint HAMMING_WINDOW_WIDE = 50;
         public static uint COVERED_WIDE = 20;
-        public static double QUITE = 0;
+        public static double QUITE = 30;
     }
 }

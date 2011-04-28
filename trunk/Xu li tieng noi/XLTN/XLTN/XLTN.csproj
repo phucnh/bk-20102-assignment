@@ -49,6 +49,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EnegryGraph.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EnegryGraph.Designer.cs">
+      <DependentUpon>EnegryGraph.cs</DependentUpon>
+    </Compile>
     <Compile Include="HammingWindow.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
