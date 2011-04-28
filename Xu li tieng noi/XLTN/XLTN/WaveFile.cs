@@ -167,11 +167,15 @@ namespace AudioUtils
 
 				for ( int i = 0; i < m_NumSamples; i++)
 				{
-					m_Data[ i ] = binRead.ReadInt16( );
+                    m_Data[i] = binRead.ReadInt16();
 				}
 			} 
 
 			public byte[] DataID
+
+
+
+
 			{
 				get { return m_DataID; }
 			}

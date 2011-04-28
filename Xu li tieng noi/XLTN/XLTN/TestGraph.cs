@@ -28,7 +28,7 @@ namespace XLTN
             graphPane.Clone();
             graphPane.XAxis.Title.Text = "Time";
             graphPane.YAxis.Title.Text = "Amplitude";
-
+            
             PointPairList list = ConvertToPointPairList(waveFile);
 
             if (list == null) return;
@@ -79,7 +79,7 @@ namespace XLTN
             Processor processor = new Processor(waveFile, hammingWindow);
 
             processor.Process();
-
+            
             GraphPane graphPane = zedGraphControl.GraphPane;
             graphPane.Clone();
             graphPane.XAxis.Title.Text = "Time";
@@ -105,10 +105,10 @@ namespace XLTN
             for (int i = 0; i < array.Length; i++)
             {
                 double val = array[i];
-                //double x = (double)((double)i / (double)(file.WaveFmt.SamplesPerSec)*1000);
+                double x = Parameters.HAMMING_WINDOW_WIDE / 2 + i * (Parameters.HAMMING_WINDOW_WIDE - Parameters.COVERED_WIDE);
                 double y = val;
 
-                list.Add(i, y);
+                list.Add(x, y);
             }
 
             return list;
