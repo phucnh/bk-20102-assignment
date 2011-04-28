@@ -55,8 +55,8 @@ namespace XLTN
 
     public static class Parameters
     {
-        public static uint HAMMING_WINDOW_WIDE = 100;
-        public static uint COVERED_WIDE = 0;
+        public static uint HAMMING_WINDOW_WIDE = 50;
+        public static uint COVERED_WIDE = 20;
         public static double QUITE = 0;
     }
 }
