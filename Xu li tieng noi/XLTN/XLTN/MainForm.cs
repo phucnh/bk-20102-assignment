@@ -24,41 +24,37 @@ namespace XLTN
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 waveFile = new AudioUtils.WaveFile(openFileDialog1.FileName);
-
                 waveFile.Read();
-                isDraw = true;
 
-                Refresh();
+                this.btnSignalGraph.Enabled = true;
+                this.btnEnegryGraph.Enabled = true;
+                this.btnShowAll.Enabled = true;
+                this.Refresh();
             }
         }
 
-        private void MainForm_Paint(object sender, PaintEventArgs e)
-        {
-            Pen pen = new Pen(ForeColor);
-
-            if (isDraw)
-            {
-                waveFile.Draw(e, pen);
-            }
-        }
-
-        protected override void OnMouseWheel(MouseEventArgs e)
-        {
-            if (e.Delta * SystemInformation.MouseWheelScrollLines / 120 > 0)
-            {
-                waveFile.ZoomIn();
-            }
-            else
-            {
-                waveFile.ZoomOut();
-            }
-
-            Refresh();
-        }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnSignalGraph_Click(object sender, EventArgs e)
+        {
+            SignalGraph frm = new SignalGraph(waveFile);
+            frm.Show();
+        }
+
+        private void btnEnegryGraph_Click(object sender, EventArgs e)
+        {
+            EnegryGraph frm = new EnegryGraph(waveFile);
+            frm.Show();
+        }
+
+        private void btnShowAll_Click(object sender, EventArgs e)
+        {
+            AllGraph frm = new AllGraph(waveFile);
+            frm.Show();
         }
     }
 }

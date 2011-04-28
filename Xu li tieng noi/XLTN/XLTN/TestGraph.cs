@@ -68,7 +68,7 @@ namespace XLTN
                 waveFile.Read();
                 //isDraw = true;
 
-                //DrawGraph();
+                DrawGraph();
                 DrawEngeryGraph();
             }
         }
@@ -79,8 +79,8 @@ namespace XLTN
             Processor processor = new Processor(waveFile, hammingWindow);
 
             processor.Process();
-            
-            GraphPane graphPane = zedGraphControl.GraphPane;
+
+            GraphPane graphPane = new GraphPane();
             graphPane.Clone();
             graphPane.XAxis.Title.Text = "Time";
             graphPane.YAxis.Title.Text = "Amplitude";
@@ -92,6 +92,7 @@ namespace XLTN
             LineItem curve = graphPane.AddCurve("Curve", list, Color.Red, SymbolType.None);
             curve.Line.Width = 2.0F;
             //curve.Line.Fill = new Fill(Color.White, Color.Red, 45F);
+            zedGraphControl.MasterPane.Add(graphPane);
             zedGraphControl.AxisChange();
         }
 

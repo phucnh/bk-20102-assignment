@@ -11,50 +11,42 @@ using ZedGraph;
 
 namespace XLTN
 {
-    public partial class EnegryGraph : Form
+    public partial class SignalGraph : Form
     {
-
         private AudioUtils.WaveFile waveFile;
 
-        private EnegryGraph()
+        protected SignalGraph()
         {
             InitializeComponent();
         }
 
-        public EnegryGraph(AudioUtils.WaveFile waveFile)
+        public SignalGraph(AudioUtils.WaveFile waveFile)
             : this()
         {
             this.waveFile = waveFile;
             //this.waveFile.Read();
         }
 
-        protected void DrawEngeryGraph()
+
+        private void DrawGraph()
         {
-            HammingWindow hammingWindow = new HammingWindow(Parameters.HAMMING_WINDOW_WIDE);
-            Processor processor = new Processor(waveFile, hammingWindow);
-
-            processor.Process();
-
             GraphPane graphPane = zedGraphControl.GraphPane;
             graphPane.Clone();
             graphPane.XAxis.Title.Text = "Time";
             graphPane.YAxis.Title.Text = "Amplitude";
 
-            PointPairList list = Utility.ConvertEnegryToPointPairList(processor.enegryArray.ToArray());
+            PointPairList list = Utility.ConvertToPointPairList(waveFile);
 
             if (list == null) return;
 
-            LineItem curve = graphPane.AddCurve("Enegry", list, Color.Red, SymbolType.None);
+            LineItem curve = graphPane.AddCurve("Curve", list, Color.Red, SymbolType.None);
             curve.Line.Width = 2.0F;
-            //curve.Line.Fill = new Fill(Color.White, Color.Red, 45F);
             zedGraphControl.AxisChange();
         }
-        
-        private void EnegryGraph_Load(object sender, EventArgs e)
+
+        private void SignalGraph_Load(object sender, EventArgs e)
         {
-            DrawEngeryGraph();
+            DrawGraph();
         }
-
-
     }
 }

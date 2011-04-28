@@ -49,6 +49,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AllGraph.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AllGraph.Designer.cs">
+      <DependentUpon>AllGraph.cs</DependentUpon>
+    </Compile>
     <Compile Include="EnegryGraph.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,8 +77,20 @@
     <Compile Include="TestGraph.Designer.cs">
       <DependentUpon>TestGraph.cs</DependentUpon>
     </Compile>
+    <Compile Include="SignalGraph.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SignalGraph.Designer.cs">
+      <DependentUpon>SignalGraph.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utility\Utility.cs" />
     <Compile Include="WaveFile.cs" />
+    <EmbeddedResource Include="AllGraph.resx">
+      <DependentUpon>AllGraph.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EnegryGraph.resx">
+      <DependentUpon>EnegryGraph.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -87,6 +105,9 @@
     </Compile>
     <EmbeddedResource Include="TestGraph.resx">
       <DependentUpon>TestGraph.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SignalGraph.resx">
+      <DependentUpon>SignalGraph.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

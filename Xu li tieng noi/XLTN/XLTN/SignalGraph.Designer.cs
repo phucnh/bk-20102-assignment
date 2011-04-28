@@ -1,6 +1,6 @@
 ﻿namespace XLTN
 {
-    partial class EnegryGraph
+    partial class SignalGraph
     {
         /// <summary>
         /// Required designer variable.
@@ -43,18 +43,18 @@
             this.zedGraphControl.ScrollMinX = 0D;
             this.zedGraphControl.ScrollMinY = 0D;
             this.zedGraphControl.ScrollMinY2 = 0D;
-            this.zedGraphControl.Size = new System.Drawing.Size(805, 391);
+            this.zedGraphControl.Size = new System.Drawing.Size(862, 418);
             this.zedGraphControl.TabIndex = 0;
             // 
-            // EnegryGraph
+            // SignalGraph
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(805, 391);
+            this.ClientSize = new System.Drawing.Size(862, 418);
             this.Controls.Add(this.zedGraphControl);
-            this.Name = "EnegryGraph";
-            this.Text = "EnegryGraph";
-            this.Load += new System.EventHandler(this.EnegryGraph_Load);
+            this.Name = "SignalGraph";
+            this.Text = "SignalGraph";
+            this.Load += new System.EventHandler(this.SignalGraph_Load);
             this.ResumeLayout(false);
 
         }
