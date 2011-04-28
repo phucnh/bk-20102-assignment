@@ -50,7 +50,7 @@ namespace XLTN
             for (int i = 0; i < file.WaveData.NumSamples; i++)
             {
                 double val = file.WaveData[i];
-                double x = (double)((double)i / (double)(file.WaveFmt.SamplesPerSec)*1000);
+                double x = (double)((double)i / (double)(file.WaveFmt.SamplesPerSec) * 1000);
                 double y = val;
 
                 list.Add(x, y);
@@ -76,9 +76,9 @@ namespace XLTN
         protected void DrawEngeryGraph()
         {
             HammingWindow hammingWindow = new HammingWindow(Parameters.HAMMING_WINDOW_WIDE);
-                Processor processor = new Processor(waveFile, hammingWindow);
+            Processor processor = new Processor(waveFile, hammingWindow);
 
-                processor.Process();
+            processor.Process();
 
             GraphPane graphPane = zedGraphControl.GraphPane;
             graphPane.Clone();
