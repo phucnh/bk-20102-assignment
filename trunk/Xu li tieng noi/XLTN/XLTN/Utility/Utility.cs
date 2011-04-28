@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+using ZedGraph;
+
 namespace XLTN
 {
     public class Utility
@@ -73,6 +75,46 @@ namespace XLTN
         public static double CalculateEnegryAtN(Int16 source)
         {
             return (double)source * source;
+        }
+
+
+        public static PointPairList ConvertToPointPairList(AudioUtils.WaveFile file)
+        {
+            if (file == null) return null;
+
+            PointPairList list = new PointPairList();
+
+            //double height = zedGraphControl.Height / 4;
+
+            for (int i = 0; i < file.WaveData.NumSamples; i++)
+            {
+                double val = file.WaveData[i];
+                //double x = (double)((double)i / (double)(file.WaveFmt.SamplesPerSec) * 1000);
+                double y = val;
+
+                list.Add(i, y);
+            }
+
+            return list;
+        }
+
+        public static PointPairList ConvertEnegryToPointPairList(double[] array)
+        {
+
+            PointPairList list = new PointPairList();
+
+            //double height = zedGraphControl.Height / 4;
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                double val = array[i];
+                double x = Parameters.HAMMING_WINDOW_WIDE / 2 + i * (Parameters.HAMMING_WINDOW_WIDE - Parameters.COVERED_WIDE);
+                double y = val;
+
+                list.Add(x, y);
+            }
+
+            return list;
         }
 
     }

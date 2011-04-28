@@ -31,11 +31,13 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.openFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabControl = new System.Windows.Forms.TabControl();
-            this.tabGraph = new System.Windows.Forms.TabPage();
-            this.tabDetails = new System.Windows.Forms.TabPage();
+            this.grpDetails = new System.Windows.Forms.GroupBox();
+            this.grpCommand = new System.Windows.Forms.GroupBox();
+            this.btnEnegryGraph = new System.Windows.Forms.Button();
+            this.btnSignalGraph = new System.Windows.Forms.Button();
+            this.btnShowAll = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
-            this.tabControl.SuspendLayout();
+            this.grpCommand.SuspendLayout();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -48,7 +50,7 @@
             this.openFileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(845, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(447, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -59,52 +61,75 @@
             this.openFileToolStripMenuItem.Text = "Open file";
             this.openFileToolStripMenuItem.Click += new System.EventHandler(this.openFileToolStripMenuItem_Click);
             // 
-            // tabControl
+            // grpDetails
             // 
-            this.tabControl.Controls.Add(this.tabGraph);
-            this.tabControl.Controls.Add(this.tabDetails);
-            this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl.Location = new System.Drawing.Point(0, 24);
-            this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(845, 354);
-            this.tabControl.TabIndex = 1;
+            this.grpDetails.Location = new System.Drawing.Point(13, 38);
+            this.grpDetails.Name = "grpDetails";
+            this.grpDetails.Size = new System.Drawing.Size(417, 249);
+            this.grpDetails.TabIndex = 1;
+            this.grpDetails.TabStop = false;
+            this.grpDetails.Text = "File Details";
             // 
-            // tabGraph
+            // grpCommand
             // 
-            this.tabGraph.Location = new System.Drawing.Point(4, 22);
-            this.tabGraph.Name = "tabGraph";
-            this.tabGraph.Padding = new System.Windows.Forms.Padding(3);
-            this.tabGraph.Size = new System.Drawing.Size(837, 328);
-            this.tabGraph.TabIndex = 0;
-            this.tabGraph.Text = "Graph";
-            this.tabGraph.UseVisualStyleBackColor = true;
+            this.grpCommand.Controls.Add(this.btnShowAll);
+            this.grpCommand.Controls.Add(this.btnEnegryGraph);
+            this.grpCommand.Controls.Add(this.btnSignalGraph);
+            this.grpCommand.Location = new System.Drawing.Point(13, 307);
+            this.grpCommand.Name = "grpCommand";
+            this.grpCommand.Size = new System.Drawing.Size(417, 126);
+            this.grpCommand.TabIndex = 2;
+            this.grpCommand.TabStop = false;
+            this.grpCommand.Text = "Command";
             // 
-            // tabDetails
+            // btnEnegryGraph
             // 
-            this.tabDetails.Location = new System.Drawing.Point(4, 22);
-            this.tabDetails.Name = "tabDetails";
-            this.tabDetails.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDetails.Size = new System.Drawing.Size(837, 328);
-            this.tabDetails.TabIndex = 1;
-            this.tabDetails.Text = "Details";
-            this.tabDetails.UseVisualStyleBackColor = true;
+            this.btnEnegryGraph.Enabled = false;
+            this.btnEnegryGraph.Location = new System.Drawing.Point(141, 19);
+            this.btnEnegryGraph.Name = "btnEnegryGraph";
+            this.btnEnegryGraph.Size = new System.Drawing.Size(118, 23);
+            this.btnEnegryGraph.TabIndex = 1;
+            this.btnEnegryGraph.Text = "Show Enegry Graph";
+            this.btnEnegryGraph.UseVisualStyleBackColor = true;
+            this.btnEnegryGraph.Click += new System.EventHandler(this.btnEnegryGraph_Click);
+            // 
+            // btnSignalGraph
+            // 
+            this.btnSignalGraph.Enabled = false;
+            this.btnSignalGraph.Location = new System.Drawing.Point(6, 19);
+            this.btnSignalGraph.Name = "btnSignalGraph";
+            this.btnSignalGraph.Size = new System.Drawing.Size(118, 23);
+            this.btnSignalGraph.TabIndex = 0;
+            this.btnSignalGraph.Text = "Show Signal Graph";
+            this.btnSignalGraph.UseVisualStyleBackColor = true;
+            this.btnSignalGraph.Click += new System.EventHandler(this.btnSignalGraph_Click);
+            // 
+            // btnShowAll
+            // 
+            this.btnShowAll.Enabled = false;
+            this.btnShowAll.Location = new System.Drawing.Point(278, 19);
+            this.btnShowAll.Name = "btnShowAll";
+            this.btnShowAll.Size = new System.Drawing.Size(118, 23);
+            this.btnShowAll.TabIndex = 2;
+            this.btnShowAll.Text = "Show All";
+            this.btnShowAll.UseVisualStyleBackColor = true;
+            this.btnShowAll.Click += new System.EventHandler(this.btnShowAll_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(845, 378);
-            this.Controls.Add(this.tabControl);
+            this.ClientSize = new System.Drawing.Size(447, 460);
+            this.Controls.Add(this.grpCommand);
+            this.Controls.Add(this.grpDetails);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.MainForm_Paint);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.tabControl.ResumeLayout(false);
+            this.grpCommand.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -115,8 +140,10 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem openFileToolStripMenuItem;
-        private System.Windows.Forms.TabControl tabControl;
-        private System.Windows.Forms.TabPage tabGraph;
-        private System.Windows.Forms.TabPage tabDetails;
+        private System.Windows.Forms.GroupBox grpDetails;
+        private System.Windows.Forms.GroupBox grpCommand;
+        private System.Windows.Forms.Button btnSignalGraph;
+        private System.Windows.Forms.Button btnEnegryGraph;
+        private System.Windows.Forms.Button btnShowAll;
     }
 }

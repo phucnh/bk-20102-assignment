@@ -15,7 +15,7 @@ namespace XLTN
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TestGraph());
+            Application.Run(new MainForm());
         }
     }
 }
