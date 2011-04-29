@@ -35,9 +35,17 @@
             this.grpCommand = new System.Windows.Forms.GroupBox();
             this.btnEnegryGraph = new System.Windows.Forms.Button();
             this.btnSignalGraph = new System.Windows.Forms.Button();
-            this.btnShowAll = new System.Windows.Forms.Button();
+            this.grpOption = new System.Windows.Forms.GroupBox();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.txtWindowWide = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtCoveredWide = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtQuite = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.grpCommand.SuspendLayout();
+            this.grpOption.SuspendLayout();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -50,7 +58,7 @@
             this.openFileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(447, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(356, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -65,19 +73,18 @@
             // 
             this.grpDetails.Location = new System.Drawing.Point(13, 38);
             this.grpDetails.Name = "grpDetails";
-            this.grpDetails.Size = new System.Drawing.Size(417, 249);
+            this.grpDetails.Size = new System.Drawing.Size(331, 355);
             this.grpDetails.TabIndex = 1;
             this.grpDetails.TabStop = false;
             this.grpDetails.Text = "File Details";
             // 
             // grpCommand
             // 
-            this.grpCommand.Controls.Add(this.btnShowAll);
             this.grpCommand.Controls.Add(this.btnEnegryGraph);
             this.grpCommand.Controls.Add(this.btnSignalGraph);
-            this.grpCommand.Location = new System.Drawing.Point(13, 307);
+            this.grpCommand.Location = new System.Drawing.Point(13, 399);
             this.grpCommand.Name = "grpCommand";
-            this.grpCommand.Size = new System.Drawing.Size(417, 126);
+            this.grpCommand.Size = new System.Drawing.Size(331, 63);
             this.grpCommand.TabIndex = 2;
             this.grpCommand.TabStop = false;
             this.grpCommand.Text = "Command";
@@ -85,7 +92,7 @@
             // btnEnegryGraph
             // 
             this.btnEnegryGraph.Enabled = false;
-            this.btnEnegryGraph.Location = new System.Drawing.Point(141, 19);
+            this.btnEnegryGraph.Location = new System.Drawing.Point(182, 19);
             this.btnEnegryGraph.Name = "btnEnegryGraph";
             this.btnEnegryGraph.Size = new System.Drawing.Size(118, 23);
             this.btnEnegryGraph.TabIndex = 1;
@@ -96,7 +103,7 @@
             // btnSignalGraph
             // 
             this.btnSignalGraph.Enabled = false;
-            this.btnSignalGraph.Location = new System.Drawing.Point(6, 19);
+            this.btnSignalGraph.Location = new System.Drawing.Point(27, 19);
             this.btnSignalGraph.Name = "btnSignalGraph";
             this.btnSignalGraph.Size = new System.Drawing.Size(118, 23);
             this.btnSignalGraph.TabIndex = 0;
@@ -104,22 +111,86 @@
             this.btnSignalGraph.UseVisualStyleBackColor = true;
             this.btnSignalGraph.Click += new System.EventHandler(this.btnSignalGraph_Click);
             // 
-            // btnShowAll
+            // grpOption
             // 
-            this.btnShowAll.Enabled = false;
-            this.btnShowAll.Location = new System.Drawing.Point(278, 19);
-            this.btnShowAll.Name = "btnShowAll";
-            this.btnShowAll.Size = new System.Drawing.Size(118, 23);
-            this.btnShowAll.TabIndex = 2;
-            this.btnShowAll.Text = "Show All";
-            this.btnShowAll.UseVisualStyleBackColor = true;
-            this.btnShowAll.Click += new System.EventHandler(this.btnShowAll_Click);
+            this.grpOption.Controls.Add(this.label3);
+            this.grpOption.Controls.Add(this.txtQuite);
+            this.grpOption.Controls.Add(this.label2);
+            this.grpOption.Controls.Add(this.txtCoveredWide);
+            this.grpOption.Controls.Add(this.label1);
+            this.grpOption.Controls.Add(this.txtWindowWide);
+            this.grpOption.Controls.Add(this.btnSave);
+            this.grpOption.Location = new System.Drawing.Point(13, 482);
+            this.grpOption.Name = "grpOption";
+            this.grpOption.Size = new System.Drawing.Size(331, 145);
+            this.grpOption.TabIndex = 3;
+            this.grpOption.TabStop = false;
+            this.grpOption.Text = "Options";
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(250, 107);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 0;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // txtWindowWide
+            // 
+            this.txtWindowWide.Location = new System.Drawing.Point(104, 28);
+            this.txtWindowWide.Name = "txtWindowWide";
+            this.txtWindowWide.Size = new System.Drawing.Size(159, 20);
+            this.txtWindowWide.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(24, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(74, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Window Wide";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(24, 58);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(75, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Covered Wide";
+            // 
+            // txtCoveredWide
+            // 
+            this.txtCoveredWide.Location = new System.Drawing.Point(104, 55);
+            this.txtCoveredWide.Name = "txtCoveredWide";
+            this.txtCoveredWide.Size = new System.Drawing.Size(159, 20);
+            this.txtCoveredWide.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(24, 84);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(32, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Quite";
+            // 
+            // txtQuite
+            // 
+            this.txtQuite.Location = new System.Drawing.Point(104, 81);
+            this.txtQuite.Name = "txtQuite";
+            this.txtQuite.Size = new System.Drawing.Size(159, 20);
+            this.txtQuite.TabIndex = 5;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(447, 460);
+            this.ClientSize = new System.Drawing.Size(356, 638);
+            this.Controls.Add(this.grpOption);
             this.Controls.Add(this.grpCommand);
             this.Controls.Add(this.grpDetails);
             this.Controls.Add(this.menuStrip1);
@@ -130,6 +201,8 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.grpCommand.ResumeLayout(false);
+            this.grpOption.ResumeLayout(false);
+            this.grpOption.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -144,6 +217,13 @@
         private System.Windows.Forms.GroupBox grpCommand;
         private System.Windows.Forms.Button btnSignalGraph;
         private System.Windows.Forms.Button btnEnegryGraph;
-        private System.Windows.Forms.Button btnShowAll;
+        private System.Windows.Forms.GroupBox grpOption;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtCoveredWide;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtWindowWide;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtQuite;
     }
 }
