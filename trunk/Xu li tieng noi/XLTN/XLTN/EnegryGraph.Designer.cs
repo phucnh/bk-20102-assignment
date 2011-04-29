@@ -33,6 +33,7 @@
             // 
             // zedGraphControl
             // 
+            this.zedGraphControl.BackColor = System.Drawing.Color.Black;
             this.zedGraphControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.zedGraphControl.Location = new System.Drawing.Point(0, 0);
             this.zedGraphControl.Name = "zedGraphControl";

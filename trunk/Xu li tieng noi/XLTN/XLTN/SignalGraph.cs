@@ -39,8 +39,8 @@ namespace XLTN
 
             if (list == null) return;
 
-            LineItem curve = graphPane.AddCurve("Curve", list, Color.Red, SymbolType.None);
-            curve.Line.Width = 2.0F;
+            LineItem curve = graphPane.AddCurve("", list, Color.Red, SymbolType.None);
+            curve.Line.Width = 1F;
             zedGraphControl.AxisChange();
         }
 

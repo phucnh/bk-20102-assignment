@@ -41,7 +41,7 @@ namespace XLTN
 
         public float CaculateN(uint n)
         {
-            return (float)(0.54 - 0.46 * Math.Cos(2 * 90 * ((float)n / (Wide - 1))));
+            return (float)(0.54 - 0.46 * Math.Cos(2 * Math.PI * ((float)n / (Wide - 1))));
         }
     }
 }

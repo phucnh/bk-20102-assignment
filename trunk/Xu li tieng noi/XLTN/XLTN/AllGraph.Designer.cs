@@ -33,6 +33,7 @@
             // 
             // zedGraphControl
             // 
+            this.zedGraphControl.AllowDrop = true;
             this.zedGraphControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.zedGraphControl.Location = new System.Drawing.Point(0, 0);
             this.zedGraphControl.Name = "zedGraphControl";
@@ -43,8 +44,11 @@
             this.zedGraphControl.ScrollMinX = 0D;
             this.zedGraphControl.ScrollMinY = 0D;
             this.zedGraphControl.ScrollMinY2 = 0D;
+            this.zedGraphControl.SelectButtons = System.Windows.Forms.MouseButtons.XButton1;
             this.zedGraphControl.Size = new System.Drawing.Size(1094, 408);
             this.zedGraphControl.TabIndex = 0;
+            this.zedGraphControl.ZoomButtons2 = System.Windows.Forms.MouseButtons.Left;
+            this.zedGraphControl.ZoomModifierKeys = System.Windows.Forms.Keys.F1;
             // 
             // AllGraph
             // 

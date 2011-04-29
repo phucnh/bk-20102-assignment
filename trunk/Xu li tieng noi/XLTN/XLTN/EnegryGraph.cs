@@ -45,7 +45,7 @@ namespace XLTN
             if (list == null) return;
 
             LineItem curve = graphPane.AddCurve("Enegry", list, Color.Red, SymbolType.None);
-            curve.Line.Width = 2.0F;
+            curve.Line.Width = 1F;
             //curve.Line.Fill = new Fill(Color.White, Color.Red, 45F);
             zedGraphControl.AxisChange();
         }

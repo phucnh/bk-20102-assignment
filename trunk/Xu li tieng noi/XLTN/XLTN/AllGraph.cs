@@ -36,11 +36,9 @@ namespace XLTN
             GraphPane sGraphPane = new GraphPane();
             GraphPane eGraphPane = new GraphPane();
 
-            sGraphPane.Clone();
             sGraphPane.XAxis.Title.Text = "Time";
             sGraphPane.YAxis.Title.Text = "Amplitude";
 
-            eGraphPane.Clone();
             eGraphPane.XAxis.Title.Text = "Time";
             eGraphPane.YAxis.Title.Text = "Enegry";
 
@@ -52,12 +50,9 @@ namespace XLTN
             LineItem sCurve = sGraphPane.AddCurve("Signal", signalList, Color.Red, SymbolType.None);
             LineItem eCurve = eGraphPane.AddCurve("Enegry", enegryList, Color.Blue, SymbolType.None);
 
-            sCurve.Line.Width = 2.0F;
-            eCurve.Line.Width = 2.0F;
+            sCurve.Line.Width = 1F;
+            eCurve.Line.Width = 1F;
 
-            //curve.Line.Fill = new Fill(Color.White, Color.Red, 45F);
-            zedGraphControl.MasterPane.Add(sGraphPane);
-            zedGraphControl.MasterPane.Add(eGraphPane);
             zedGraphControl.AxisChange();
         }
 

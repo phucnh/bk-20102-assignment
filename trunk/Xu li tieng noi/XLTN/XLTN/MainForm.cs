@@ -28,7 +28,7 @@ namespace XLTN
 
                 this.btnSignalGraph.Enabled = true;
                 this.btnEnegryGraph.Enabled = true;
-                this.btnShowAll.Enabled = true;
+                
                 this.Refresh();
             }
         }
@@ -36,7 +36,9 @@ namespace XLTN
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            txtWindowWide.Text = Parameters.HAMMING_WINDOW_WIDE.ToString();
+            txtCoveredWide.Text = Parameters.COVERED_WIDE.ToString() ;
+            txtQuite.Text = Parameters.QUITE.ToString();
         }
 
         private void btnSignalGraph_Click(object sender, EventArgs e)
@@ -55,6 +57,13 @@ namespace XLTN
         {
             AllGraph frm = new AllGraph(waveFile);
             frm.Show();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            Parameters.HAMMING_WINDOW_WIDE = Convert.ToUInt32(txtWindowWide.Text);
+            Parameters.COVERED_WIDE = Convert.ToUInt32(txtCoveredWide.Text);
+            Parameters.QUITE = Convert.ToUInt32(txtQuite.Text);
         }
     }
 }
