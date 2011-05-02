@@ -26,6 +26,19 @@ namespace XLTN
                 waveFile = new AudioUtils.WaveFile(openFileDialog1.FileName);
                 waveFile.Read();
 
+                txtFormatID.Text = "fmt (" + waveFile.WaveFmt.FmtID[0] + " " + waveFile.WaveFmt.FmtID[1] + " " + waveFile.WaveFmt.FmtID[2] + " " + waveFile.WaveFmt.FmtID[3] + ")";
+                txtFormatSize.Text = waveFile.WaveFmt.FmtSize.ToString();
+                txtAudioFormat.Text = waveFile.WaveFmt.FmtTag.ToString();
+                txtNumberChannels.Text = waveFile.WaveFmt.Channels.ToString();
+                txtSampleRate.Text = waveFile.WaveFmt.SamplesPerSec.ToString();
+                txtByteRate.Text = waveFile.WaveFmt.AverageBytesPerSec.ToString();
+                txtBlockAlign.Text = waveFile.WaveFmt.BlockAlign.ToString();
+                txtBitsPerSample.Text = waveFile.WaveFmt.BitsPerSample.ToString();
+
+                txtDataID.Text = "data(" + waveFile.WaveData.DataID[0] + " " + waveFile.WaveData.DataID[1] + " " + waveFile.WaveData.DataID[2] + " " + waveFile.WaveData.DataID[3] + ")";
+                txtDataSize.Text = waveFile.WaveData.DataSize.ToString();
+                txtData.Text = waveFile.WaveData.NumSamples.ToString();
+                
                 this.btnSignalGraph.Enabled = true;
                 this.btnEnegryGraph.Enabled = true;
                 
