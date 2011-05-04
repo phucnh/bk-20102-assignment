@@ -7,287 +7,313 @@ using System.Diagnostics;
 
 namespace AudioUtils
 {
-	/// <summary>
-	/// Summary description for WaveFile.
-	/// </summary>
-	public class WaveFile
-	{
-		/// <summary>
-		/// The Riff header is 12 bytes long
-		/// </summary>
-		class Riff
-		{
-			public Riff()
-			{
-				m_RiffID = new byte[ 4 ];
-				m_RiffFormat = new byte[ 4 ];
-			}
+    /// <summary>
+    /// Summary description for WaveFile.
+    /// </summary>
+    public class WaveFile
+    {
+        /// <summary>
+        /// The Riff header is 12 bytes long
+        /// </summary>
+        class Riff
+        {
+            public Riff()
+            {
+                m_RiffID = new byte[4];
+                m_RiffFormat = new byte[4];
+            }
 
-			public void ReadRiff( FileStream inFS )
-			{
-				inFS.Read( m_RiffID, 0, 4 );
-				
-				Debug.Assert( m_RiffID[0] == 82, "Riff ID Not Valid" );
+            public void ReadRiff(FileStream inFS)
+            {
+                inFS.Read(m_RiffID, 0, 4);
 
-				BinaryReader binRead = new BinaryReader( inFS );
+                Debug.Assert(m_RiffID[0] == 82, "Riff ID Not Valid");
 
-				m_RiffSize = binRead.ReadUInt32( );
+                BinaryReader binRead = new BinaryReader(inFS);
 
-				inFS.Read( m_RiffFormat, 0, 4 );
-			}
+                m_RiffSize = binRead.ReadUInt32();
 
-			public byte[] RiffID
-			{
-				get { return m_RiffID; }
-			}
+                inFS.Read(m_RiffFormat, 0, 4);
+            }
 
-			public uint RiffSize
-			{
-				get { return ( m_RiffSize ); }
-			}
+            public byte[] RiffID
+            {
+                get { return m_RiffID; }
+            }
 
-			public byte[] RiffFormat
-			{
-				get { return m_RiffFormat; }
-			}
+            public uint RiffSize
+            {
+                get { return (m_RiffSize); }
+            }
 
-			private byte[]			m_RiffID;
-			private uint			m_RiffSize;
-			private byte[]			m_RiffFormat;
-		}
+            public byte[] RiffFormat
+            {
+                get { return m_RiffFormat; }
+            }
 
-		/// <summary>
-		/// The Format header is 24 bytes long
-		/// </summary>
-		public class Fmt
-		{
-			public Fmt()
-			{
-				m_FmtID = new byte[ 4 ];
-			}
+            private byte[] m_RiffID;
+            private uint m_RiffSize;
+            private byte[] m_RiffFormat;
+        }
 
-			public void ReadFmt( FileStream inFS )
-			{
-				inFS.Read( m_FmtID, 0, 4 );
+        /// <summary>
+        /// The Format header is 24 bytes long
+        /// </summary>
+        public class Fmt
+        {
+            public Fmt()
+            {
+                m_FmtID = new byte[4];
+            }
 
-				Debug.Assert( m_FmtID[0] == 102, "Format ID Not Valid" );
+            public void ReadFmt(FileStream inFS)
+            {
+                inFS.Read(m_FmtID, 0, 4);
 
-				BinaryReader binRead = new BinaryReader( inFS );
+                Debug.Assert(m_FmtID[0] == 102, "Format ID Not Valid");
 
-				m_FmtSize = binRead.ReadUInt32( );
-				m_FmtTag = binRead.ReadUInt16( );
-				m_Channels = binRead.ReadUInt16( );
-				m_SamplesPerSec = binRead.ReadUInt32( );
-				m_AverageBytesPerSec = binRead.ReadUInt32( );
-				m_BlockAlign = binRead.ReadUInt16( );
-				m_BitsPerSample = binRead.ReadUInt16( );
+                BinaryReader binRead = new BinaryReader(inFS);
 
-				// This accounts for the variable format header size 
-				// 12 bytes of Riff Header, 4 bytes for FormatId, 4 bytes for FormatSize & the Actual size of the Format Header 
-				inFS.Seek( m_FmtSize + 20, System.IO.SeekOrigin.Begin );
-			}
+                m_FmtSize = binRead.ReadUInt32();
+                m_FmtTag = binRead.ReadUInt16();
+                m_Channels = binRead.ReadUInt16();
+                m_SamplesPerSec = binRead.ReadUInt32();
+                m_AverageBytesPerSec = binRead.ReadUInt32();
+                m_BlockAlign = binRead.ReadUInt16();
+                m_BitsPerSample = binRead.ReadUInt16();
 
-			public byte[] FmtID
-			{
-				get { return m_FmtID; }
-			}
+                // This accounts for the variable format header size 
+                // 12 bytes of Riff Header, 4 bytes for FormatId, 4 bytes for FormatSize & the Actual size of the Format Header 
+                inFS.Seek(m_FmtSize + 20, System.IO.SeekOrigin.Begin);
+            }
 
-			public uint FmtSize
-			{
-				get { return m_FmtSize; }
-			}
+            public byte[] FmtID
+            {
+                get { return m_FmtID; }
+            }
 
-			public ushort FmtTag
-			{
-				get { return m_FmtTag; }
-			}
+            public uint FmtSize
+            {
+                get { return m_FmtSize; }
+            }
 
-			public ushort Channels
-			{
-				get { return m_Channels; }
-			}
+            public ushort FmtTag
+            {
+                get { return m_FmtTag; }
+            }
 
-			public uint SamplesPerSec
-			{
-				get { return m_SamplesPerSec; }
-			}
+            public ushort Channels
+            {
+                get { return m_Channels; }
+            }
 
-			public uint AverageBytesPerSec
-			{
-				get { return m_AverageBytesPerSec; }
-			}
+            public uint SamplesPerSec
+            {
+                get { return m_SamplesPerSec; }
+            }
 
-			public ushort BlockAlign
-			{
-				get { return m_BlockAlign; }
-			}
+            public uint AverageBytesPerSec
+            {
+                get { return m_AverageBytesPerSec; }
+            }
 
-			public ushort BitsPerSample
-			{
-				get { return m_BitsPerSample; }
-			}
+            public ushort BlockAlign
+            {
+                get { return m_BlockAlign; }
+            }
 
-			private byte[]			m_FmtID;
-			private uint			m_FmtSize;
-			private ushort			m_FmtTag;
-			private ushort			m_Channels;
-			private uint			m_SamplesPerSec;
-			private uint			m_AverageBytesPerSec;
-			private ushort			m_BlockAlign;
-			private ushort			m_BitsPerSample;
-		}
+            public ushort BitsPerSample
+            {
+                get { return m_BitsPerSample; }
+            }
 
-		/// <summary>
-		/// The Data block is 8 bytes + ???? long
-		/// </summary>
-		public class Data
-		{
-			public Data()
-			{
-				m_DataID = new byte[ 4 ];
-			}
+            private byte[] m_FmtID;
+            private uint m_FmtSize;
+            private ushort m_FmtTag;
+            private ushort m_Channels;
+            private uint m_SamplesPerSec;
+            private uint m_AverageBytesPerSec;
+            private ushort m_BlockAlign;
+            private ushort m_BitsPerSample;
+        }
 
-			public void ReadData( FileStream inFS )
-			{
-				//inFS.Seek( 36, System.IO.SeekOrigin.Begin );
+        /// <summary>
+        /// The Data block is 8 bytes + ???? long
+        /// </summary>
+        public class Data
+        {
+            public Data()
+            {
+                m_DataID = new byte[4];
+            }
+
+            public void ReadData(FileStream inFS)
+            {
+                //inFS.Seek( 36, System.IO.SeekOrigin.Begin );
                 //inFS.Seek(44, System.IO.SeekOrigin.Begin);
-				inFS.Read( m_DataID, 0, 4 );
+                inFS.Read(m_DataID, 0, 4);
 
-				Debug.Assert( m_DataID[0] == 100, "Data ID Not Valid" );
+                Debug.Assert(m_DataID[0] == 100, "Data ID Not Valid");
 
-				BinaryReader binRead = new BinaryReader( inFS );
+                BinaryReader binRead = new BinaryReader(inFS);
 
-				m_DataSize = binRead.ReadUInt32( );
+                m_DataSize = binRead.ReadUInt32();
 
-				m_Data = new Int16[ m_DataSize ];
+                m_Data = new Int16[m_DataSize];
 
-				inFS.Seek( 44, System.IO.SeekOrigin.Begin );
-			
-				m_NumSamples = (int) ( m_DataSize / 2 );
+                inFS.Seek(44, System.IO.SeekOrigin.Begin);
 
-				for ( int i = 0; i < m_NumSamples; i++)
-				{
+                m_NumSamples = (int)(m_DataSize / 2);
+
+                for (int i = 0; i < m_NumSamples; i++)
+                {
                     m_Data[i] = binRead.ReadInt16();
-				}
-			} 
+                }
+            }
 
-			public byte[] DataID
+            public byte[] DataID
+            {
+                get { return m_DataID; }
+            }
 
+            public uint DataSize
+            {
+                get { return m_DataSize; }
+            }
 
+            public Int16 this[int pos]
+            {
+                get { return m_Data[pos]; }
+            }
 
-
-			{
-				get { return m_DataID; }
-			}
-
-			public uint DataSize
-			{
-				get { return m_DataSize; }
-			}
-
-			public Int16 this[ int pos ]
-			{
-				get { return m_Data[ pos ]; }
-			}
-
-			public int NumSamples
-			{
-				get { return m_NumSamples; }
-			}
+            public int NumSamples
+            {
+                get { return m_NumSamples; }
+            }
 
             public Int16[] ConvertToArray()
             {
                 return m_Data;
             }
 
-			private byte[]			m_DataID;
-			private uint			m_DataSize;
-			private Int16[]			m_Data;
-			private int				m_NumSamples;
-		}
+            private byte[] m_DataID;
+            private uint m_DataSize;
+            private Int16[] m_Data;
+            private int m_NumSamples;
+            private Int16 m_AbsMax;
 
-		public WaveFile( String inFilepath )
-		{
-			m_Filepath = inFilepath;
-			m_FileInfo = new FileInfo( inFilepath );
-			m_FileStream = m_FileInfo.OpenRead( );
+            public Int16 AbsMax
+            {
+                get
+                {
+                    Int16 currentMax = 0;
 
-			m_Riff = new Riff( );
-			m_Fmt = new Fmt( );
-			m_Data = new Data( );
-		}
+                    for (int i = 0; i < m_Data.Length; i++)
+                    {
+                        if (Math.Abs(m_Data[i]) > currentMax)
+                        {
+                            currentMax = Math.Abs(m_Data[i]);
+                        }
+                    }
 
-		public void Read( )
-		{
-			m_Riff.ReadRiff( m_FileStream );
-			m_Fmt.ReadFmt( m_FileStream );
-			m_Data.ReadData( m_FileStream );
-		}
+                    return currentMax;
+                }
+            }
+        }
 
-		public void Draw( PaintEventArgs pea, Pen pen )
-		{
-			Graphics grfx = pea.Graphics;
+        public WaveFile(String inFilepath)
+        {
+            m_Filepath = inFilepath;
+            m_FileInfo = new FileInfo(inFilepath);
+            m_FileStream = m_FileInfo.OpenRead();
 
-			if ( m_PageScale == 0.0f )
-				m_PageScale = grfx.VisibleClipBounds.Width / m_Data.NumSamples;
+            m_Riff = new Riff();
+            m_Fmt = new Fmt();
+            m_Data = new Data();
+        }
 
-			grfx.PageScale = m_PageScale;
+        public void Read()
+        {
+            m_Riff.ReadRiff(m_FileStream);
+            m_Fmt.ReadFmt(m_FileStream);
+            m_Data.ReadData(m_FileStream);
+        }
 
-			RectangleF visBounds = grfx.VisibleClipBounds;
+        public void Draw(PaintEventArgs pea, Pen pen)
+        {
+            Graphics grfx = pea.Graphics;
+
+            if (m_PageScale == 0.0f)
+                m_PageScale = grfx.VisibleClipBounds.Width / m_Data.NumSamples;
+
+            grfx.PageScale = m_PageScale;
+
+            RectangleF visBounds = grfx.VisibleClipBounds;
 
             //Draw X axis
-			grfx.DrawLine( pen, 0, visBounds.Height / 2, visBounds.Width, visBounds.Height / 2 );
+            grfx.DrawLine(pen, 0, visBounds.Height / 2, visBounds.Width, visBounds.Height / 2);
 
-			grfx.TranslateTransform( 0, visBounds.Height );
-			grfx.ScaleTransform( 1, -1 );
+            grfx.TranslateTransform(0, visBounds.Height);
+            grfx.ScaleTransform(1, -1);
 
             //Draw signals
-			Draw16Bit( grfx, pen, visBounds );
-		}
+            Draw16Bit(grfx, pen, visBounds);
+        }
 
-		void Draw16Bit( Graphics grfx, Pen pen, RectangleF visBounds )
-		{
-			short val = m_Data[ 0 ];
+        void Draw16Bit(Graphics grfx, Pen pen, RectangleF visBounds)
+        {
+            short val = m_Data[0];
 
-			int prevX = 0;
-			int prevY = (int) (( (val + 32768) * visBounds.Height ) / 65536 );
+            int prevX = 0;
+            int prevY = (int)(((val + 32768) * visBounds.Height) / 65536);
 
-			for ( int i = 0; i < m_Data.NumSamples; i++ )
-			{
-				val = m_Data[ i ];
+            for (int i = 0; i < m_Data.NumSamples; i++)
+            {
+                val = m_Data[i];
 
-				int scaledVal = (int) (( (val + 32768) * visBounds.Height ) / 65536 );
+                int scaledVal = (int)(((val + 32768) * visBounds.Height) / 65536);
 
-				grfx.DrawLine( pen, prevX, prevY, i, scaledVal );
+                grfx.DrawLine(pen, prevX, prevY, i, scaledVal);
 
-				prevX = i;
-				prevY = scaledVal;
+                prevX = i;
+                prevY = scaledVal;
 
-				if ( m_Fmt.Channels == 2 )
-					i++;
-			}
-		}
+                if (m_Fmt.Channels == 2)
+                    i++;
+            }
+        }
 
-		public void ZoomIn( )
-		{
-			m_PageScale /= 2;
-		}
+        public void ZoomIn()
+        {
+            m_PageScale /= 2;
+        }
 
-		public void ZoomOut( )
-		{
-			m_PageScale *= 2;
-		}
+        public void ZoomOut()
+        {
+            m_PageScale *= 2;
+        }
 
-		private string			m_Filepath;
-		private FileInfo		m_FileInfo;
-		private FileStream		m_FileStream;
+        private string m_Filepath;
+        private FileInfo m_FileInfo;
+        private FileStream m_FileStream;
 
-		private Riff			m_Riff;
+        private Riff m_Riff;
         private Fmt m_Fmt;
 
         private Data m_Data;
+        private Int16 m_AbsMax;
 
-		private float			m_PageScale = 0.0f;
+
+
+        private float m_PageScale = 0.0f;
+
+        public Int16 AbsMax
+        {
+            get
+            {
+                return m_Data.AbsMax;
+            }
+        }
 
         public Data WaveData
         {
@@ -305,5 +331,5 @@ namespace AudioUtils
             get { return m_Fmt; }
             set { m_Fmt = value; }
         }
-	}
+    }
 }
