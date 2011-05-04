@@ -89,7 +89,7 @@ namespace XLTN
                         if (i == eArray.Length) break;
                     }
 
-                    endPointList.Add(i);
+                    endPointList.Add(i-1);
                 }
                 else 
                     i++;
@@ -103,6 +103,6 @@ namespace XLTN
     {
         public static uint HAMMING_WINDOW_WIDE = 50;
         public static uint COVERED_WIDE = 20;
-        public static double QUITE = 500000;
+        public static double QUITE = 600000;
     }
 }

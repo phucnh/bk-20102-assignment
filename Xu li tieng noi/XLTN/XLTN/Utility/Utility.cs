@@ -56,7 +56,7 @@ namespace XLTN
                 result +=(double) source[i] * source[i];
             }
 
-            return (double) result/length;
+            return (double) result;
         }
 
         public static double CalculateEnegry(double[] source)
@@ -69,7 +69,7 @@ namespace XLTN
                 result += (double)source[i] * source[i];
             }
 
-            return (double)result/length;
+            return (double)result;
         }
 
         public static double CalculateEnegryAtN(Int16 source)
