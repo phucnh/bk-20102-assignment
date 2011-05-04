@@ -32,6 +32,16 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.openFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.grpDetails = new System.Windows.Forms.GroupBox();
+            this.txtData = new System.Windows.Forms.Label();
+            this.txtDataSize = new System.Windows.Forms.Label();
+            this.txtDataID = new System.Windows.Forms.Label();
+            this.txtBitsPerSample = new System.Windows.Forms.Label();
+            this.txtBlockAlign = new System.Windows.Forms.Label();
+            this.txtByteRate = new System.Windows.Forms.Label();
+            this.txtSampleRate = new System.Windows.Forms.Label();
+            this.txtNumberChannels = new System.Windows.Forms.Label();
+            this.txtAudioFormat = new System.Windows.Forms.Label();
+            this.txtFormatSize = new System.Windows.Forms.Label();
             this.txtFormatID = new System.Windows.Forms.Label();
             this.lblData = new System.Windows.Forms.Label();
             this.lblDataSize = new System.Windows.Forms.Label();
@@ -57,16 +67,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtWindowWide = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
-            this.txtFormatSize = new System.Windows.Forms.Label();
-            this.txtAudioFormat = new System.Windows.Forms.Label();
-            this.txtNumberChannels = new System.Windows.Forms.Label();
-            this.txtSampleRate = new System.Windows.Forms.Label();
-            this.txtByteRate = new System.Windows.Forms.Label();
-            this.txtBlockAlign = new System.Windows.Forms.Label();
-            this.txtBitsPerSample = new System.Windows.Forms.Label();
-            this.txtDataID = new System.Windows.Forms.Label();
-            this.txtDataSize = new System.Windows.Forms.Label();
-            this.txtData = new System.Windows.Forms.Label();
+            this.btnDetect = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.grpDetails.SuspendLayout();
             this.grpCommand.SuspendLayout();
@@ -83,14 +84,14 @@
             this.openFileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(356, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(468, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // openFileToolStripMenuItem
             // 
             this.openFileToolStripMenuItem.Name = "openFileToolStripMenuItem";
-            this.openFileToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.openFileToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
             this.openFileToolStripMenuItem.Text = "Open file";
             this.openFileToolStripMenuItem.Click += new System.EventHandler(this.openFileToolStripMenuItem_Click);
             // 
@@ -121,45 +122,125 @@
             this.grpDetails.Controls.Add(this.lblFormatSize);
             this.grpDetails.Controls.Add(this.lblFormatID);
             this.grpDetails.Controls.Add(this.lblFmtChunk);
-            this.grpDetails.Location = new System.Drawing.Point(13, 27);
+            this.grpDetails.Location = new System.Drawing.Point(13, 25);
             this.grpDetails.Name = "grpDetails";
-            this.grpDetails.Size = new System.Drawing.Size(331, 337);
+            this.grpDetails.Size = new System.Drawing.Size(443, 313);
             this.grpDetails.TabIndex = 1;
             this.grpDetails.TabStop = false;
             this.grpDetails.Text = "File Details";
             // 
+            // txtData
+            // 
+            this.txtData.AutoSize = true;
+            this.txtData.Location = new System.Drawing.Point(132, 285);
+            this.txtData.Name = "txtData";
+            this.txtData.Size = new System.Drawing.Size(0, 13);
+            this.txtData.TabIndex = 23;
+            // 
+            // txtDataSize
+            // 
+            this.txtDataSize.AutoSize = true;
+            this.txtDataSize.Location = new System.Drawing.Point(132, 263);
+            this.txtDataSize.Name = "txtDataSize";
+            this.txtDataSize.Size = new System.Drawing.Size(0, 13);
+            this.txtDataSize.TabIndex = 22;
+            // 
+            // txtDataID
+            // 
+            this.txtDataID.AutoSize = true;
+            this.txtDataID.Location = new System.Drawing.Point(132, 240);
+            this.txtDataID.Name = "txtDataID";
+            this.txtDataID.Size = new System.Drawing.Size(0, 13);
+            this.txtDataID.TabIndex = 21;
+            // 
+            // txtBitsPerSample
+            // 
+            this.txtBitsPerSample.AutoSize = true;
+            this.txtBitsPerSample.Location = new System.Drawing.Point(132, 191);
+            this.txtBitsPerSample.Name = "txtBitsPerSample";
+            this.txtBitsPerSample.Size = new System.Drawing.Size(0, 13);
+            this.txtBitsPerSample.TabIndex = 20;
+            // 
+            // txtBlockAlign
+            // 
+            this.txtBlockAlign.AutoSize = true;
+            this.txtBlockAlign.Location = new System.Drawing.Point(132, 170);
+            this.txtBlockAlign.Name = "txtBlockAlign";
+            this.txtBlockAlign.Size = new System.Drawing.Size(0, 13);
+            this.txtBlockAlign.TabIndex = 19;
+            // 
+            // txtByteRate
+            // 
+            this.txtByteRate.AutoSize = true;
+            this.txtByteRate.Location = new System.Drawing.Point(132, 147);
+            this.txtByteRate.Name = "txtByteRate";
+            this.txtByteRate.Size = new System.Drawing.Size(0, 13);
+            this.txtByteRate.TabIndex = 18;
+            // 
+            // txtSampleRate
+            // 
+            this.txtSampleRate.AutoSize = true;
+            this.txtSampleRate.Location = new System.Drawing.Point(132, 123);
+            this.txtSampleRate.Name = "txtSampleRate";
+            this.txtSampleRate.Size = new System.Drawing.Size(0, 13);
+            this.txtSampleRate.TabIndex = 17;
+            // 
+            // txtNumberChannels
+            // 
+            this.txtNumberChannels.AutoSize = true;
+            this.txtNumberChannels.Location = new System.Drawing.Point(132, 100);
+            this.txtNumberChannels.Name = "txtNumberChannels";
+            this.txtNumberChannels.Size = new System.Drawing.Size(0, 13);
+            this.txtNumberChannels.TabIndex = 16;
+            // 
+            // txtAudioFormat
+            // 
+            this.txtAudioFormat.AutoSize = true;
+            this.txtAudioFormat.Location = new System.Drawing.Point(132, 77);
+            this.txtAudioFormat.Name = "txtAudioFormat";
+            this.txtAudioFormat.Size = new System.Drawing.Size(0, 13);
+            this.txtAudioFormat.TabIndex = 15;
+            // 
+            // txtFormatSize
+            // 
+            this.txtFormatSize.AutoSize = true;
+            this.txtFormatSize.Location = new System.Drawing.Point(132, 55);
+            this.txtFormatSize.Name = "txtFormatSize";
+            this.txtFormatSize.Size = new System.Drawing.Size(0, 13);
+            this.txtFormatSize.TabIndex = 14;
+            // 
             // txtFormatID
             // 
             this.txtFormatID.AutoSize = true;
-            this.txtFormatID.Location = new System.Drawing.Point(129, 37);
+            this.txtFormatID.Location = new System.Drawing.Point(129, 34);
             this.txtFormatID.Name = "txtFormatID";
-            this.txtFormatID.Size = new System.Drawing.Size(0, 14);
+            this.txtFormatID.Size = new System.Drawing.Size(0, 13);
             this.txtFormatID.TabIndex = 13;
             // 
             // lblData
             // 
             this.lblData.AutoSize = true;
-            this.lblData.Location = new System.Drawing.Point(27, 308);
+            this.lblData.Location = new System.Drawing.Point(27, 286);
             this.lblData.Name = "lblData";
-            this.lblData.Size = new System.Drawing.Size(98, 14);
+            this.lblData.Size = new System.Drawing.Size(96, 13);
             this.lblData.TabIndex = 12;
             this.lblData.Text = "- NumberSamples: ";
             // 
             // lblDataSize
             // 
             this.lblDataSize.AutoSize = true;
-            this.lblDataSize.Location = new System.Drawing.Point(27, 284);
+            this.lblDataSize.Location = new System.Drawing.Point(27, 264);
             this.lblDataSize.Name = "lblDataSize";
-            this.lblDataSize.Size = new System.Drawing.Size(63, 14);
+            this.lblDataSize.Size = new System.Drawing.Size(62, 13);
             this.lblDataSize.TabIndex = 11;
             this.lblDataSize.Text = "- DataSize: ";
             // 
             // lblDataID
             // 
             this.lblDataID.AutoSize = true;
-            this.lblDataID.Location = new System.Drawing.Point(27, 259);
+            this.lblDataID.Location = new System.Drawing.Point(27, 240);
             this.lblDataID.Name = "lblDataID";
-            this.lblDataID.Size = new System.Drawing.Size(48, 14);
+            this.lblDataID.Size = new System.Drawing.Size(50, 13);
             this.lblDataID.TabIndex = 10;
             this.lblDataID.Text = "- DataID:";
             // 
@@ -167,7 +248,7 @@
             // 
             this.lblDataChunk.AutoSize = true;
             this.lblDataChunk.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblDataChunk.Location = new System.Drawing.Point(10, 237);
+            this.lblDataChunk.Location = new System.Drawing.Point(10, 220);
             this.lblDataChunk.Name = "lblDataChunk";
             this.lblDataChunk.Size = new System.Drawing.Size(100, 14);
             this.lblDataChunk.TabIndex = 9;
@@ -176,72 +257,72 @@
             // lblBitsPerSample
             // 
             this.lblBitsPerSample.AutoSize = true;
-            this.lblBitsPerSample.Location = new System.Drawing.Point(27, 207);
+            this.lblBitsPerSample.Location = new System.Drawing.Point(27, 192);
             this.lblBitsPerSample.Name = "lblBitsPerSample";
-            this.lblBitsPerSample.Size = new System.Drawing.Size(89, 14);
+            this.lblBitsPerSample.Size = new System.Drawing.Size(87, 13);
             this.lblBitsPerSample.TabIndex = 8;
             this.lblBitsPerSample.Text = "- BitsPerSample: ";
             // 
             // lblBlockAlign
             // 
             this.lblBlockAlign.AutoSize = true;
-            this.lblBlockAlign.Location = new System.Drawing.Point(27, 184);
+            this.lblBlockAlign.Location = new System.Drawing.Point(27, 171);
             this.lblBlockAlign.Name = "lblBlockAlign";
-            this.lblBlockAlign.Size = new System.Drawing.Size(70, 14);
+            this.lblBlockAlign.Size = new System.Drawing.Size(69, 13);
             this.lblBlockAlign.TabIndex = 7;
             this.lblBlockAlign.Text = "- BlockAlign: ";
             // 
             // lblByteRate
             // 
             this.lblByteRate.AutoSize = true;
-            this.lblByteRate.Location = new System.Drawing.Point(27, 159);
+            this.lblByteRate.Location = new System.Drawing.Point(27, 148);
             this.lblByteRate.Name = "lblByteRate";
-            this.lblByteRate.Size = new System.Drawing.Size(64, 14);
+            this.lblByteRate.Size = new System.Drawing.Size(63, 13);
             this.lblByteRate.TabIndex = 6;
             this.lblByteRate.Text = "- ByteRate: ";
             // 
             // lblSampleRate
             // 
             this.lblSampleRate.AutoSize = true;
-            this.lblSampleRate.Location = new System.Drawing.Point(27, 134);
+            this.lblSampleRate.Location = new System.Drawing.Point(27, 124);
             this.lblSampleRate.Name = "lblSampleRate";
-            this.lblSampleRate.Size = new System.Drawing.Size(77, 14);
+            this.lblSampleRate.Size = new System.Drawing.Size(77, 13);
             this.lblSampleRate.TabIndex = 5;
             this.lblSampleRate.Text = "- SampleRate: ";
             // 
             // lblNumChannels
             // 
             this.lblNumChannels.AutoSize = true;
-            this.lblNumChannels.Location = new System.Drawing.Point(27, 109);
+            this.lblNumChannels.Location = new System.Drawing.Point(27, 101);
             this.lblNumChannels.Name = "lblNumChannels";
-            this.lblNumChannels.Size = new System.Drawing.Size(102, 14);
+            this.lblNumChannels.Size = new System.Drawing.Size(100, 13);
             this.lblNumChannels.TabIndex = 4;
             this.lblNumChannels.Text = "- NumberChannels: ";
             // 
             // lblAudioFormat
             // 
             this.lblAudioFormat.AutoSize = true;
-            this.lblAudioFormat.Location = new System.Drawing.Point(27, 84);
+            this.lblAudioFormat.Location = new System.Drawing.Point(27, 78);
             this.lblAudioFormat.Name = "lblAudioFormat";
-            this.lblAudioFormat.Size = new System.Drawing.Size(80, 14);
+            this.lblAudioFormat.Size = new System.Drawing.Size(78, 13);
             this.lblAudioFormat.TabIndex = 3;
             this.lblAudioFormat.Text = "- AudioFormat: ";
             // 
             // lblFormatSize
             // 
             this.lblFormatSize.AutoSize = true;
-            this.lblFormatSize.Location = new System.Drawing.Point(27, 60);
+            this.lblFormatSize.Location = new System.Drawing.Point(27, 56);
             this.lblFormatSize.Name = "lblFormatSize";
-            this.lblFormatSize.Size = new System.Drawing.Size(74, 14);
+            this.lblFormatSize.Size = new System.Drawing.Size(71, 13);
             this.lblFormatSize.TabIndex = 2;
             this.lblFormatSize.Text = "- FormatSize: ";
             // 
             // lblFormatID
             // 
             this.lblFormatID.AutoSize = true;
-            this.lblFormatID.Location = new System.Drawing.Point(27, 37);
+            this.lblFormatID.Location = new System.Drawing.Point(27, 34);
             this.lblFormatID.Name = "lblFormatID";
-            this.lblFormatID.Size = new System.Drawing.Size(62, 14);
+            this.lblFormatID.Size = new System.Drawing.Size(62, 13);
             this.lblFormatID.TabIndex = 1;
             this.lblFormatID.Text = "- FormatID: ";
             // 
@@ -249,7 +330,7 @@
             // 
             this.lblFmtChunk.AutoSize = true;
             this.lblFmtChunk.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblFmtChunk.Location = new System.Drawing.Point(7, 17);
+            this.lblFmtChunk.Location = new System.Drawing.Point(7, 16);
             this.lblFmtChunk.Name = "lblFmtChunk";
             this.lblFmtChunk.Size = new System.Drawing.Size(116, 14);
             this.lblFmtChunk.TabIndex = 0;
@@ -258,11 +339,12 @@
             // 
             // grpCommand
             // 
+            this.grpCommand.Controls.Add(this.btnDetect);
             this.grpCommand.Controls.Add(this.btnEnegryGraph);
             this.grpCommand.Controls.Add(this.btnSignalGraph);
-            this.grpCommand.Location = new System.Drawing.Point(13, 370);
+            this.grpCommand.Location = new System.Drawing.Point(13, 344);
             this.grpCommand.Name = "grpCommand";
-            this.grpCommand.Size = new System.Drawing.Size(331, 68);
+            this.grpCommand.Size = new System.Drawing.Size(443, 63);
             this.grpCommand.TabIndex = 2;
             this.grpCommand.TabStop = false;
             this.grpCommand.Text = "Command";
@@ -270,9 +352,9 @@
             // btnEnegryGraph
             // 
             this.btnEnegryGraph.Enabled = false;
-            this.btnEnegryGraph.Location = new System.Drawing.Point(180, 25);
+            this.btnEnegryGraph.Location = new System.Drawing.Point(168, 23);
             this.btnEnegryGraph.Name = "btnEnegryGraph";
-            this.btnEnegryGraph.Size = new System.Drawing.Size(118, 25);
+            this.btnEnegryGraph.Size = new System.Drawing.Size(118, 23);
             this.btnEnegryGraph.TabIndex = 1;
             this.btnEnegryGraph.Text = "Show Enegry Graph";
             this.btnEnegryGraph.UseVisualStyleBackColor = true;
@@ -281,9 +363,9 @@
             // btnSignalGraph
             // 
             this.btnSignalGraph.Enabled = false;
-            this.btnSignalGraph.Location = new System.Drawing.Point(27, 25);
+            this.btnSignalGraph.Location = new System.Drawing.Point(27, 23);
             this.btnSignalGraph.Name = "btnSignalGraph";
-            this.btnSignalGraph.Size = new System.Drawing.Size(118, 25);
+            this.btnSignalGraph.Size = new System.Drawing.Size(118, 23);
             this.btnSignalGraph.TabIndex = 0;
             this.btnSignalGraph.Text = "Show Signal Graph";
             this.btnSignalGraph.UseVisualStyleBackColor = true;
@@ -298,9 +380,9 @@
             this.grpOption.Controls.Add(this.label1);
             this.grpOption.Controls.Add(this.txtWindowWide);
             this.grpOption.Controls.Add(this.btnSave);
-            this.grpOption.Location = new System.Drawing.Point(13, 444);
+            this.grpOption.Location = new System.Drawing.Point(13, 412);
             this.grpOption.Name = "grpOption";
-            this.grpOption.Size = new System.Drawing.Size(331, 156);
+            this.grpOption.Size = new System.Drawing.Size(443, 145);
             this.grpOption.TabIndex = 3;
             this.grpOption.TabStop = false;
             this.grpOption.Text = "Options";
@@ -308,15 +390,15 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 90);
+            this.label3.Location = new System.Drawing.Point(24, 84);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 14);
+            this.label3.Size = new System.Drawing.Size(32, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Quite";
             // 
             // txtQuite
             // 
-            this.txtQuite.Location = new System.Drawing.Point(104, 87);
+            this.txtQuite.Location = new System.Drawing.Point(104, 81);
             this.txtQuite.Name = "txtQuite";
             this.txtQuite.Size = new System.Drawing.Size(159, 20);
             this.txtQuite.TabIndex = 5;
@@ -324,15 +406,15 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(24, 62);
+            this.label2.Location = new System.Drawing.Point(24, 58);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 14);
+            this.label2.Size = new System.Drawing.Size(75, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Covered Wide";
             // 
             // txtCoveredWide
             // 
-            this.txtCoveredWide.Location = new System.Drawing.Point(104, 59);
+            this.txtCoveredWide.Location = new System.Drawing.Point(104, 55);
             this.txtCoveredWide.Name = "txtCoveredWide";
             this.txtCoveredWide.Size = new System.Drawing.Size(159, 20);
             this.txtCoveredWide.TabIndex = 3;
@@ -340,114 +422,45 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 33);
+            this.label1.Location = new System.Drawing.Point(24, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 14);
+            this.label1.Size = new System.Drawing.Size(74, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Window Wide";
             // 
             // txtWindowWide
             // 
-            this.txtWindowWide.Location = new System.Drawing.Point(104, 30);
+            this.txtWindowWide.Location = new System.Drawing.Point(104, 28);
             this.txtWindowWide.Name = "txtWindowWide";
             this.txtWindowWide.Size = new System.Drawing.Size(159, 20);
             this.txtWindowWide.TabIndex = 1;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(250, 115);
+            this.btnSave.Location = new System.Drawing.Point(250, 107);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 25);
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // txtFormatSize
+            // btnDetect
             // 
-            this.txtFormatSize.AutoSize = true;
-            this.txtFormatSize.Location = new System.Drawing.Point(132, 59);
-            this.txtFormatSize.Name = "txtFormatSize";
-            this.txtFormatSize.Size = new System.Drawing.Size(0, 14);
-            this.txtFormatSize.TabIndex = 14;
-            // 
-            // txtAudioFormat
-            // 
-            this.txtAudioFormat.AutoSize = true;
-            this.txtAudioFormat.Location = new System.Drawing.Point(132, 83);
-            this.txtAudioFormat.Name = "txtAudioFormat";
-            this.txtAudioFormat.Size = new System.Drawing.Size(0, 14);
-            this.txtAudioFormat.TabIndex = 15;
-            // 
-            // txtNumberChannels
-            // 
-            this.txtNumberChannels.AutoSize = true;
-            this.txtNumberChannels.Location = new System.Drawing.Point(132, 108);
-            this.txtNumberChannels.Name = "txtNumberChannels";
-            this.txtNumberChannels.Size = new System.Drawing.Size(0, 14);
-            this.txtNumberChannels.TabIndex = 16;
-            // 
-            // txtSampleRate
-            // 
-            this.txtSampleRate.AutoSize = true;
-            this.txtSampleRate.Location = new System.Drawing.Point(132, 133);
-            this.txtSampleRate.Name = "txtSampleRate";
-            this.txtSampleRate.Size = new System.Drawing.Size(0, 14);
-            this.txtSampleRate.TabIndex = 17;
-            // 
-            // txtByteRate
-            // 
-            this.txtByteRate.AutoSize = true;
-            this.txtByteRate.Location = new System.Drawing.Point(132, 158);
-            this.txtByteRate.Name = "txtByteRate";
-            this.txtByteRate.Size = new System.Drawing.Size(0, 14);
-            this.txtByteRate.TabIndex = 18;
-            // 
-            // txtBlockAlign
-            // 
-            this.txtBlockAlign.AutoSize = true;
-            this.txtBlockAlign.Location = new System.Drawing.Point(132, 183);
-            this.txtBlockAlign.Name = "txtBlockAlign";
-            this.txtBlockAlign.Size = new System.Drawing.Size(0, 14);
-            this.txtBlockAlign.TabIndex = 19;
-            // 
-            // txtBitsPerSample
-            // 
-            this.txtBitsPerSample.AutoSize = true;
-            this.txtBitsPerSample.Location = new System.Drawing.Point(132, 206);
-            this.txtBitsPerSample.Name = "txtBitsPerSample";
-            this.txtBitsPerSample.Size = new System.Drawing.Size(0, 14);
-            this.txtBitsPerSample.TabIndex = 20;
-            // 
-            // txtDataID
-            // 
-            this.txtDataID.AutoSize = true;
-            this.txtDataID.Location = new System.Drawing.Point(132, 258);
-            this.txtDataID.Name = "txtDataID";
-            this.txtDataID.Size = new System.Drawing.Size(0, 14);
-            this.txtDataID.TabIndex = 21;
-            // 
-            // txtDataSize
-            // 
-            this.txtDataSize.AutoSize = true;
-            this.txtDataSize.Location = new System.Drawing.Point(132, 283);
-            this.txtDataSize.Name = "txtDataSize";
-            this.txtDataSize.Size = new System.Drawing.Size(0, 14);
-            this.txtDataSize.TabIndex = 22;
-            // 
-            // txtData
-            // 
-            this.txtData.AutoSize = true;
-            this.txtData.Location = new System.Drawing.Point(132, 307);
-            this.txtData.Name = "txtData";
-            this.txtData.Size = new System.Drawing.Size(0, 14);
-            this.txtData.TabIndex = 23;
+            this.btnDetect.Enabled = false;
+            this.btnDetect.Location = new System.Drawing.Point(308, 23);
+            this.btnDetect.Name = "btnDetect";
+            this.btnDetect.Size = new System.Drawing.Size(118, 23);
+            this.btnDetect.TabIndex = 1;
+            this.btnDetect.Text = "Detect";
+            this.btnDetect.UseVisualStyleBackColor = true;
+            this.btnDetect.Click += new System.EventHandler(this.btnEnegryGraph_Click);
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(356, 612);
+            this.ClientSize = new System.Drawing.Size(468, 568);
             this.Controls.Add(this.grpOption);
             this.Controls.Add(this.grpCommand);
             this.Controls.Add(this.grpDetails);
@@ -510,5 +523,6 @@
         private System.Windows.Forms.Label txtDataID;
         private System.Windows.Forms.Label txtDataSize;
         private System.Windows.Forms.Label txtData;
+        private System.Windows.Forms.Button btnDetect;
     }
 }
