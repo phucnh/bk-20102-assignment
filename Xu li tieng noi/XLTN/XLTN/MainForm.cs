@@ -77,6 +77,8 @@ namespace XLTN
             Parameters.HAMMING_WINDOW_WIDE = Convert.ToUInt32(txtWindowWide.Text);
             Parameters.COVERED_WIDE = Convert.ToUInt32(txtCoveredWide.Text);
             Parameters.QUITE = Convert.ToUInt32(txtQuite.Text);
+
+            MessageBox.Show("Success!!!");
         }
     }
 }
