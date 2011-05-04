@@ -17,6 +17,7 @@ namespace XLTN
             waveFile = null;
             hammingWindow = null;
             enegryArray = null;
+            endPointList = new List<double>();
         }
 
         /// <summary>
@@ -69,35 +70,39 @@ namespace XLTN
         {
             double[] eArray = enegryArray.ToArray();
 
-            for (int i = 0; i < eArray.Length - 1; i++)
+            for (int i = 0; i < eArray.Length - 1;)
             {
+                int length = 0;
 
-                if (eArray[i] < Parameters.QUITE && eArray[i + 1] > Parameters.QUITE)
+                if (eArray[i] <= Parameters.QUITE)
                 {
-                    if (endPointList == null) endPointList = new List<double>();
+                    float temp = i;
+                    length = 0;
 
-                    endPointList.Add((double)i + .5d);
-                }
-                else if (eArray[i] > Parameters.QUITE && eArray[i + 1] < Parameters.QUITE)
-                {
-                    if (endPointList == null) endPointList = new List<double>();
+                    endPointList.Add(i);
 
-                    endPointList.Add((double)i + .5d);
-                }
-                else if (eArray[i] == Parameters.QUITE)
-                {
-                    if (endPointList == null) endPointList = new List<double>();
+                    while (eArray[i] <= Parameters.QUITE)
+                    {
+                        length++;
+                        i++;
+
+                        if (i == eArray.Length) break;
+                    }
 
                     endPointList.Add(i);
                 }
+                else 
+                    i++;
             }
         }
+
+
     }
 
     public static class Parameters
     {
         public static uint HAMMING_WINDOW_WIDE = 50;
         public static uint COVERED_WIDE = 20;
-        public static double QUITE = 300;
+        public static double QUITE = 500000;
     }
 }
