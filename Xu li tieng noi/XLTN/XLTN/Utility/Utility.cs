@@ -56,7 +56,7 @@ namespace XLTN
                 result +=(double) source[i] * source[i];
             }
 
-            return result;
+            return (double) result/length;
         }
 
         public static double CalculateEnegry(double[] source)
@@ -69,7 +69,7 @@ namespace XLTN
                 result += (double)source[i] * source[i];
             }
 
-            return result;
+            return (double)result/length;
         }
 
         public static double CalculateEnegryAtN(Int16 source)
@@ -88,7 +88,7 @@ namespace XLTN
 
             for (int i = 0; i < file.WaveData.NumSamples; i++)
             {
-                double val = file.WaveData[i];
+                double val = file.WaveData[i]; //20*Math.Log10((double)Math.Abs(file.WaveData[i]) / file.WaveData.AbsMax);
                 //double x = (double)((double)i / (double)(file.WaveFmt.SamplesPerSec) * 1000);
                 double y = val;
 
