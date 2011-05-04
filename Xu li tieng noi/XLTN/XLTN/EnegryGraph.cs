@@ -47,19 +47,19 @@ namespace XLTN
             LineItem curve = graphPane.AddCurve("Enegry", list, Color.Red, SymbolType.None);
 
             
-            if (processor.endPointList != null)
-            {
-                foreach (int end in processor.endPointList)
-                {
-                    double x = Parameters.HAMMING_WINDOW_WIDE / 2 + end * (Parameters.HAMMING_WINDOW_WIDE - Parameters.COVERED_WIDE);
-                    PointPairList endList = new PointPairList();
-                    endList.Add(x, 0);
-                    endList.Add(x, 5000000);
+            //if (processor.endPointList != null)
+            //{
+            //    foreach (int end in processor.endPointList)
+            //    {
+            //        double x = Parameters.HAMMING_WINDOW_WIDE / 2 + end * (Parameters.HAMMING_WINDOW_WIDE - Parameters.COVERED_WIDE);
+            //        PointPairList endList = new PointPairList();
+            //        endList.Add(x, 0);
+            //        endList.Add(x, 5000000);
 
-                    LineItem line = graphPane.AddCurve("Endpoint", endList, Color.Blue, SymbolType.None);
-                    line.Line.Width = 3F;
-                }
-            }
+            //        LineItem line = graphPane.AddCurve("Endpoint", endList, Color.Blue, SymbolType.None);
+            //        line.Line.Width = 3F;
+            //    }
+            //}
 
             curve.Line.Width = 1F;
             //curve.Line.Fill = new Fill(Color.White, Color.Red, 45F);
