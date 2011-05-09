@@ -55,6 +55,12 @@
     <Compile Include="AllGraph.Designer.cs">
       <DependentUpon>AllGraph.cs</DependentUpon>
     </Compile>
+    <Compile Include="Detect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Detect.Designer.cs">
+      <DependentUpon>Detect.cs</DependentUpon>
+    </Compile>
     <Compile Include="EnegryGraph.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +93,9 @@
     <Compile Include="WaveFile.cs" />
     <EmbeddedResource Include="AllGraph.resx">
       <DependentUpon>AllGraph.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detect.resx">
+      <DependentUpon>Detect.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EnegryGraph.resx">
       <DependentUpon>EnegryGraph.cs</DependentUpon>

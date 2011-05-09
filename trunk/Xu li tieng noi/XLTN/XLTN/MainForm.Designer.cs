@@ -57,6 +57,7 @@
             this.lblFormatID = new System.Windows.Forms.Label();
             this.lblFmtChunk = new System.Windows.Forms.Label();
             this.grpCommand = new System.Windows.Forms.GroupBox();
+            this.btnDetect = new System.Windows.Forms.Button();
             this.btnEnegryGraph = new System.Windows.Forms.Button();
             this.btnSignalGraph = new System.Windows.Forms.Button();
             this.grpOption = new System.Windows.Forms.GroupBox();
@@ -67,7 +68,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtWindowWide = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
-            this.btnDetect = new System.Windows.Forms.Button();
+            this.txtActivity = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.grpDetails.SuspendLayout();
             this.grpCommand.SuspendLayout();
@@ -349,6 +351,17 @@
             this.grpCommand.TabStop = false;
             this.grpCommand.Text = "Command";
             // 
+            // btnDetect
+            // 
+            this.btnDetect.Enabled = false;
+            this.btnDetect.Location = new System.Drawing.Point(308, 23);
+            this.btnDetect.Name = "btnDetect";
+            this.btnDetect.Size = new System.Drawing.Size(118, 23);
+            this.btnDetect.TabIndex = 1;
+            this.btnDetect.Text = "Detect";
+            this.btnDetect.UseVisualStyleBackColor = true;
+            this.btnDetect.Click += new System.EventHandler(this.btnDetect_Click);
+            // 
             // btnEnegryGraph
             // 
             this.btnEnegryGraph.Enabled = false;
@@ -373,7 +386,9 @@
             // 
             // grpOption
             // 
+            this.grpOption.Controls.Add(this.label4);
             this.grpOption.Controls.Add(this.label3);
+            this.grpOption.Controls.Add(this.txtActivity);
             this.grpOption.Controls.Add(this.txtQuite);
             this.grpOption.Controls.Add(this.label2);
             this.grpOption.Controls.Add(this.txtCoveredWide);
@@ -382,7 +397,7 @@
             this.grpOption.Controls.Add(this.btnSave);
             this.grpOption.Location = new System.Drawing.Point(13, 412);
             this.grpOption.Name = "grpOption";
-            this.grpOption.Size = new System.Drawing.Size(443, 145);
+            this.grpOption.Size = new System.Drawing.Size(443, 173);
             this.grpOption.TabIndex = 3;
             this.grpOption.TabStop = false;
             this.grpOption.Text = "Options";
@@ -437,7 +452,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(250, 107);
+            this.btnSave.Location = new System.Drawing.Point(247, 144);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 0;
@@ -445,22 +460,27 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // btnDetect
+            // txtActivity
             // 
-            this.btnDetect.Enabled = false;
-            this.btnDetect.Location = new System.Drawing.Point(308, 23);
-            this.btnDetect.Name = "btnDetect";
-            this.btnDetect.Size = new System.Drawing.Size(118, 23);
-            this.btnDetect.TabIndex = 1;
-            this.btnDetect.Text = "Detect";
-            this.btnDetect.UseVisualStyleBackColor = true;
-            this.btnDetect.Click += new System.EventHandler(this.btnEnegryGraph_Click);
+            this.txtActivity.Location = new System.Drawing.Point(104, 107);
+            this.txtActivity.Name = "txtActivity";
+            this.txtActivity.Size = new System.Drawing.Size(159, 20);
+            this.txtActivity.TabIndex = 5;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(24, 110);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 13);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Activity";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(468, 568);
+            this.ClientSize = new System.Drawing.Size(468, 596);
             this.Controls.Add(this.grpOption);
             this.Controls.Add(this.grpCommand);
             this.Controls.Add(this.grpDetails);
@@ -524,5 +544,7 @@
         private System.Windows.Forms.Label txtDataSize;
         private System.Windows.Forms.Label txtData;
         private System.Windows.Forms.Button btnDetect;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtActivity;
     }
 }
