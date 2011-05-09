@@ -41,6 +41,7 @@ namespace XLTN
                 
                 this.btnSignalGraph.Enabled = true;
                 this.btnEnegryGraph.Enabled = true;
+                this.btnDetect.Enabled = true;
                 
                 this.Refresh();
             }
@@ -52,6 +53,7 @@ namespace XLTN
             txtWindowWide.Text = Parameters.HAMMING_WINDOW_WIDE.ToString();
             txtCoveredWide.Text = Parameters.COVERED_WIDE.ToString() ;
             txtQuite.Text = Parameters.QUITE.ToString();
+            txtActivity.Text = Parameters.ACTIVITY.ToString();
         }
 
         private void btnSignalGraph_Click(object sender, EventArgs e)
@@ -76,9 +78,16 @@ namespace XLTN
         {
             Parameters.HAMMING_WINDOW_WIDE = Convert.ToUInt32(txtWindowWide.Text);
             Parameters.COVERED_WIDE = Convert.ToUInt32(txtCoveredWide.Text);
-            Parameters.QUITE = Convert.ToUInt32(txtQuite.Text);
+            Parameters.QUITE = Convert.ToDouble(txtQuite.Text);
+            Parameters.ACTIVITY = Convert.ToDouble(txtActivity.Text);
 
             MessageBox.Show("Success!!!");
+        }
+
+        private void btnDetect_Click(object sender, EventArgs e)
+        {
+            Detect frm = new Detect(waveFile);
+            frm.Show();
         }
     }
 }

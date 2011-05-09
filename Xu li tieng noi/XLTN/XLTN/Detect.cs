@@ -6,29 +6,25 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-
 using ZedGraph;
 
 namespace XLTN
 {
-    public partial class EnegryGraph : Form
+    public partial class Detect : Form
     {
-
         private AudioUtils.WaveFile waveFile;
 
-        private EnegryGraph()
+        public Detect()
         {
             InitializeComponent();
         }
 
-        public EnegryGraph(AudioUtils.WaveFile waveFile)
-            : this()
+        public Detect(AudioUtils.WaveFile waveFile):this()
         {
             this.waveFile = waveFile;
-            //this.waveFile.Read();
         }
 
-        protected void DrawEngeryGraph()
+        private void DrawGraph()
         {
             HammingWindow hammingWindow = new HammingWindow(Parameters.HAMMING_WINDOW_WIDE);
             Processor processor = new Processor(waveFile, hammingWindow);
@@ -40,12 +36,11 @@ namespace XLTN
             graphPane.XAxis.Title.Text = "Time";
             graphPane.YAxis.Title.Text = "Amplitude";
 
-            PointPairList list = Utility.ConvertEnegryToPointPairList(processor.enegryArray.ToArray());
+            PointPairList list = Utility.ConvertToPointPairList(waveFile);
 
             if (list == null) return;
 
-            LineItem curve = graphPane.AddCurve("Enegry", list, Color.Red, SymbolType.None);
-
+            LineItem curve = graphPane.AddCurve("", list, Color.Red, SymbolType.None);
 
             if (processor.endPointList != null)
             {
@@ -54,23 +49,41 @@ namespace XLTN
                     double x = Parameters.HAMMING_WINDOW_WIDE / 2 + end * (Parameters.HAMMING_WINDOW_WIDE - Parameters.COVERED_WIDE);
                     PointPairList endList = new PointPairList();
                     endList.Add(x, 0);
-                    endList.Add(x, 500000000);
+                    endList.Add(x, 1);
 
                     LineItem line = graphPane.AddCurve("Endpoint", endList, Color.Blue, SymbolType.None);
-                    line.Line.Width = 1F;
+                    line.Line.Width = 3F;
                 }
             }
 
+            int activity = processor.ActivityDetect();
+
+            if (activity != -1)
+            {
+                PointPairList endList = new PointPairList();
+
+                double x = Parameters.HAMMING_WINDOW_WIDE / 2 + activity * (Parameters.HAMMING_WINDOW_WIDE - Parameters.COVERED_WIDE);
+
+                endList.Add(x, 0);
+                endList.Add(x, 1);
+
+                LineItem line = graphPane.AddCurve("Activity", endList, Color.GreenYellow, SymbolType.None);
+                line.Line.Width = 3F;
+            }
+
             curve.Line.Width = 1F;
-            //curve.Line.Fill = new Fill(Color.White, Color.Red, 45F);
             zedGraphControl.AxisChange();
+
         }
-        
-        private void EnegryGraph_Load(object sender, EventArgs e)
+
+        private void zedGraphControl_Load(object sender, EventArgs e)
         {
-            DrawEngeryGraph();
+            DrawGraph();
         }
 
-
+        private void Detect_Load(object sender, EventArgs e)
+        {
+            DrawGraph();
+        }
     }
 }

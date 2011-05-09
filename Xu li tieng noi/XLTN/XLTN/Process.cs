@@ -40,7 +40,13 @@ namespace XLTN
         public void Process()
         {
             uint jumpStep = Parameters.HAMMING_WINDOW_WIDE - Parameters.COVERED_WIDE;
+
             ulong signalLength = (ulong)waveFile.WaveData.NumSamples;
+
+            //for (int i = 0; i < waveFile.WaveData.NumSamples; i++)
+            //{
+            //    waveFile.WaveData[i] = waveFile.WaveData[i] / waveFile.AbsMax;
+            //}
 
             float[] hammingArray = hammingWindow.CalculateData();
 
@@ -96,6 +102,19 @@ namespace XLTN
             }
         }
 
+        public int ActivityDetect()
+        {
+            double[] eArray = enegryArray.ToArray();
+
+            for (int i = 0; i < eArray.Length; i++)
+            {
+                if (eArray[i] > Parameters.ACTIVITY)
+                    return i;
+            }
+
+            return -1;
+        }
+
 
     }
 
@@ -104,5 +123,6 @@ namespace XLTN
         public static uint HAMMING_WINDOW_WIDE = 50;
         public static uint COVERED_WIDE = 20;
         public static double QUITE = 600000;
+        public static double ACTIVITY = 700000;
     }
 }
