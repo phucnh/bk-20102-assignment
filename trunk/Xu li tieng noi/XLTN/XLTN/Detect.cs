@@ -26,13 +26,14 @@ namespace XLTN
 
         private void DrawGraph()
         {
-            HammingWindow hammingWindow = new HammingWindow(Parameters.HAMMING_WINDOW_WIDE);
+            WindowFunction hammingWindow = Utility.CreateWindow();
             Processor processor = new Processor(waveFile, hammingWindow);
 
             processor.Process(); processor.EndPointDetect();
 
             GraphPane graphPane = zedGraphControl.GraphPane;
             graphPane.Clone();
+            graphPane.Title.Text = Parameters.WINDOW_TYPE.ToString();
             graphPane.XAxis.Title.Text = "Time";
             graphPane.YAxis.Title.Text = "Amplitude";
 
@@ -52,7 +53,7 @@ namespace XLTN
                     endList.Add(x, 1);
 
                     LineItem line = graphPane.AddCurve("Endpoint", endList, Color.Blue, SymbolType.None);
-                    line.Line.Width = 3F;
+                    line.Line.Width = 1F;
                 }
             }
 
@@ -68,7 +69,7 @@ namespace XLTN
                 endList.Add(x, 1);
 
                 LineItem line = graphPane.AddCurve("Activity", endList, Color.GreenYellow, SymbolType.None);
-                line.Line.Width = 3F;
+                line.Line.Width = 1F;
             }
 
             curve.Line.Width = 1F;

@@ -61,19 +61,23 @@
             this.btnEnegryGraph = new System.Windows.Forms.Button();
             this.btnSignalGraph = new System.Windows.Forms.Button();
             this.grpOption = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.txtActivity = new System.Windows.Forms.TextBox();
             this.txtQuite = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCoveredWide = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtWindowWide = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
-            this.txtActivity = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rbtnHamming = new System.Windows.Forms.RadioButton();
+            this.rbtnSquare = new System.Windows.Forms.RadioButton();
             this.menuStrip1.SuspendLayout();
             this.grpDetails.SuspendLayout();
             this.grpCommand.SuspendLayout();
             this.grpOption.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -386,6 +390,7 @@
             // 
             // grpOption
             // 
+            this.grpOption.Controls.Add(this.groupBox1);
             this.grpOption.Controls.Add(this.label4);
             this.grpOption.Controls.Add(this.label3);
             this.grpOption.Controls.Add(this.txtActivity);
@@ -402,6 +407,15 @@
             this.grpOption.TabStop = false;
             this.grpOption.Text = "Options";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(24, 110);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 13);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Activity";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -410,6 +424,13 @@
             this.label3.Size = new System.Drawing.Size(32, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Quite";
+            // 
+            // txtActivity
+            // 
+            this.txtActivity.Location = new System.Drawing.Point(104, 107);
+            this.txtActivity.Name = "txtActivity";
+            this.txtActivity.Size = new System.Drawing.Size(159, 20);
+            this.txtActivity.TabIndex = 5;
             // 
             // txtQuite
             // 
@@ -460,21 +481,38 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // txtActivity
+            // groupBox1
             // 
-            this.txtActivity.Location = new System.Drawing.Point(104, 107);
-            this.txtActivity.Name = "txtActivity";
-            this.txtActivity.Size = new System.Drawing.Size(159, 20);
-            this.txtActivity.TabIndex = 5;
+            this.groupBox1.Controls.Add(this.rbtnSquare);
+            this.groupBox1.Controls.Add(this.rbtnHamming);
+            this.groupBox1.Location = new System.Drawing.Point(282, 28);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(144, 99);
+            this.groupBox1.TabIndex = 7;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Window Type";
             // 
-            // label4
+            // rbtnHamming
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(24, 110);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Activity";
+            this.rbtnHamming.AutoSize = true;
+            this.rbtnHamming.Location = new System.Drawing.Point(16, 19);
+            this.rbtnHamming.Name = "rbtnHamming";
+            this.rbtnHamming.Size = new System.Drawing.Size(69, 17);
+            this.rbtnHamming.TabIndex = 0;
+            this.rbtnHamming.TabStop = true;
+            this.rbtnHamming.Text = "Hamming";
+            this.rbtnHamming.UseVisualStyleBackColor = true;
+            // 
+            // rbtnSquare
+            // 
+            this.rbtnSquare.AutoSize = true;
+            this.rbtnSquare.Location = new System.Drawing.Point(16, 48);
+            this.rbtnSquare.Name = "rbtnSquare";
+            this.rbtnSquare.Size = new System.Drawing.Size(59, 17);
+            this.rbtnSquare.TabIndex = 0;
+            this.rbtnSquare.TabStop = true;
+            this.rbtnSquare.Text = "Square";
+            this.rbtnSquare.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -497,6 +535,8 @@
             this.grpCommand.ResumeLayout(false);
             this.grpOption.ResumeLayout(false);
             this.grpOption.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -546,5 +586,8 @@
         private System.Windows.Forms.Button btnDetect;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtActivity;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton rbtnSquare;
+        private System.Windows.Forms.RadioButton rbtnHamming;
     }
 }
