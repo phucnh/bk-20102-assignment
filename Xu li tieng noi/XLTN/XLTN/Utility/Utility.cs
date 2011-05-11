@@ -117,5 +117,18 @@ namespace XLTN
             return list;
         }
 
+        public static WindowFunction CreateWindow()
+        {
+            if (Parameters.WINDOW_TYPE == WindowType.Hamming)
+            {
+                return new HammingWindow(Parameters.HAMMING_WINDOW_WIDE);
+            }
+            if (Parameters.WINDOW_TYPE == WindowType.Square)
+            {
+                return new SquareWindow(Parameters.HAMMING_WINDOW_WIDE);
+            }
+
+            return null;
+        }
     }
 }

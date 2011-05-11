@@ -5,7 +5,7 @@ using System.Text;
 
 namespace XLTN
 {
-    public class HammingWindow : WindowFunction
+    public class SquareWindow : WindowFunction
     {
         private uint wide;
 
@@ -15,10 +15,10 @@ namespace XLTN
             set { wide = value; }
         }
 
-        private HammingWindow()
-        { }
+        public SquareWindow()
+        {}
 
-        public HammingWindow(uint wide)
+        public SquareWindow(uint wide)
             : this()
         {
             this.Wide = wide;
@@ -41,7 +41,7 @@ namespace XLTN
 
         public float CaculateN(uint n)
         {
-            return (float)(0.54 - 0.46 * Math.Cos(2 * Math.PI * ((float)n / (Wide - 1))));
+            return 1;
         }
     }
 }

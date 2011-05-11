@@ -54,6 +54,18 @@ namespace XLTN
             txtCoveredWide.Text = Parameters.COVERED_WIDE.ToString() ;
             txtQuite.Text = Parameters.QUITE.ToString();
             txtActivity.Text = Parameters.ACTIVITY.ToString();
+
+            if (Parameters.WINDOW_TYPE == WindowType.Hamming)
+            {
+                rbtnHamming.Checked = true;
+                rbtnSquare.Checked = false;
+            }
+            else
+            {
+                rbtnHamming.Checked = false;
+                rbtnSquare.Checked = true;
+            }
+
         }
 
         private void btnSignalGraph_Click(object sender, EventArgs e)
@@ -80,6 +92,15 @@ namespace XLTN
             Parameters.COVERED_WIDE = Convert.ToUInt32(txtCoveredWide.Text);
             Parameters.QUITE = Convert.ToDouble(txtQuite.Text);
             Parameters.ACTIVITY = Convert.ToDouble(txtActivity.Text);
+
+            if (rbtnHamming.Checked)
+            {
+                Parameters.WINDOW_TYPE = WindowType.Hamming;
+            }
+            else
+            {
+                Parameters.WINDOW_TYPE = WindowType.Square;
+            }
 
             MessageBox.Show("Success!!!");
         }

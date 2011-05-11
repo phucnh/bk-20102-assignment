@@ -8,7 +8,7 @@ namespace XLTN
     public class Processor
     {
         private AudioUtils.WaveFile waveFile;
-        private HammingWindow hammingWindow;
+        private WindowFunction hammingWindow;
         public LinkedList<double> enegryArray;
         public List<double> endPointList;
 
@@ -25,13 +25,13 @@ namespace XLTN
         /// </summary>
         /// <param name="waveFile">The wave file.</param>
         /// <param name="hammingWindow">The hamming window.</param>
-        public Processor(AudioUtils.WaveFile waveFile, HammingWindow hammingWindow)
+        public Processor(AudioUtils.WaveFile waveFile, WindowFunction hammingWindow)
             : this()
         {
             this.waveFile = waveFile;
             this.hammingWindow = hammingWindow;
 
-            if (hammingWindow == null) hammingWindow = new HammingWindow(Parameters.HAMMING_WINDOW_WIDE);
+            if (hammingWindow == null) hammingWindow = Utility.CreateWindow();
         }
 
         /// <summary>
@@ -120,9 +120,16 @@ namespace XLTN
 
     public static class Parameters
     {
-        public static uint HAMMING_WINDOW_WIDE = 50;
-        public static uint COVERED_WIDE = 20;
-        public static double QUITE = 600000;
-        public static double ACTIVITY = 700000;
+        public static uint HAMMING_WINDOW_WIDE = 300;
+        public static uint COVERED_WIDE = 100;
+        public static double QUITE = 25000000;
+        public static double ACTIVITY = 30000000;
+        public static WindowType WINDOW_TYPE = WindowType.Hamming;
+    }
+
+    public enum WindowType
+    {
+        Hamming = 1,
+        Square = 2
     }
 }
