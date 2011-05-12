@@ -59,11 +59,19 @@ namespace XLTN
             {
                 rbtnHamming.Checked = true;
                 rbtnSquare.Checked = false;
+                rbtnHann.Checked = false;
             }
-            else
+            else if (Parameters.WINDOW_TYPE == WindowType.Square)
             {
                 rbtnHamming.Checked = false;
                 rbtnSquare.Checked = true;
+                rbtnHann.Checked = false;
+            }
+            else if (Parameters.WINDOW_TYPE == WindowType.Hann)
+            {
+                rbtnHamming.Checked = false;
+                rbtnSquare.Checked = false;
+                rbtnHann.Checked = true;
             }
 
         }
@@ -97,12 +105,16 @@ namespace XLTN
             {
                 Parameters.WINDOW_TYPE = WindowType.Hamming;
             }
-            else
+            else if (Parameters.WINDOW_TYPE == WindowType.Square)
             {
                 Parameters.WINDOW_TYPE = WindowType.Square;
             }
+            else
+            {
+                Parameters.WINDOW_TYPE = WindowType.Hann;
+            }
 
-            MessageBox.Show("Success!!!");
+            MessageBox.Show("Save Success!!!");
         }
 
         private void btnDetect_Click(object sender, EventArgs e)
