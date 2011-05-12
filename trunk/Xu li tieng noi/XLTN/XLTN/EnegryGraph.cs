@@ -71,7 +71,7 @@ namespace XLTN
                 double x = Parameters.HAMMING_WINDOW_WIDE / 2 + activity * (Parameters.HAMMING_WINDOW_WIDE - Parameters.COVERED_WIDE);
 
                 endList.Add(x, 0);
-                endList.Add(x, 1);
+                endList.Add(x, 500000000);
 
                 LineItem line = graphPane.AddCurve("Activity", endList, Color.GreenYellow, SymbolType.None);
                 line.Line.Width = 1F;
