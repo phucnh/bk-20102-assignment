@@ -85,7 +85,7 @@ namespace XLTN
                     float temp = i;
                     length = 0;
 
-                    endPointList.Add(i);
+                    int begin = i;
 
                     while (eArray[i] <= Parameters.QUITE)
                     {
@@ -95,6 +95,7 @@ namespace XLTN
                         if (i == eArray.Length) break;
                     }
 
+                    endPointList.Add(begin);
                     endPointList.Add(i-1);
                 }
                 else 
@@ -122,8 +123,8 @@ namespace XLTN
     {
         public static uint HAMMING_WINDOW_WIDE = 300;
         public static uint COVERED_WIDE = 100;
-        public static double QUITE = 25000000;
-        public static double ACTIVITY = 30000000;
+        public static double QUITE = 8800000;
+        public static double ACTIVITY = 9000000;
         public static WindowType WINDOW_TYPE = WindowType.Hamming;
     }
 
