@@ -11,4 +11,13 @@ namespace XLTN
 
         float[] CalculateData();
     }
+
+    public enum WindowType
+    {
+        Hamming = 1,
+        Square = 2,
+        Hann = 3
+    }
 }
+
+

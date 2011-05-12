@@ -127,6 +127,10 @@ namespace XLTN
             {
                 return new SquareWindow(Parameters.HAMMING_WINDOW_WIDE);
             }
+            if (Parameters.WINDOW_TYPE == WindowType.Hann)
+            {
+                return new HannWindow(Parameters.HAMMING_WINDOW_WIDE);
+            }
 
             return null;
         }

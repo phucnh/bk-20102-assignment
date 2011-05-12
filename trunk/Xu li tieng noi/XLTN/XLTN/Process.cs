@@ -127,10 +127,4 @@ namespace XLTN
         public static double ACTIVITY = 9000000;
         public static WindowType WINDOW_TYPE = WindowType.Hamming;
     }
-
-    public enum WindowType
-    {
-        Hamming = 1,
-        Square = 2
-    }
 }
