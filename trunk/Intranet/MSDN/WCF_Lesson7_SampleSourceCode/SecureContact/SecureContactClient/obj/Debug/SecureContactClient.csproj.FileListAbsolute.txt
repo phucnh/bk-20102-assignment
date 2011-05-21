@@ -1,1 +1,0 @@
-B:\Tai Lieu\Hoctap\LapTrinh\DotNet\Components\WCF\MSDN\WCF_Lesson7_SampleSourceCode\SecureContact\SecureContactClient\bin\Debug\SecureContactClient.exe.config
