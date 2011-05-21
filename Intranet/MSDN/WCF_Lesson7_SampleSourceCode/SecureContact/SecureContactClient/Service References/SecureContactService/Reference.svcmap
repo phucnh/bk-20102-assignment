@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="bc79195b-6b55-41d6-8b73-358b72fb82c1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://localhost/SecureContact/ContactService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ContactService.wsdl" MetadataType="Wsdl" ID="31edf1ef-f9d4-4296-8019-76b1539b4342" SourceId="1" SourceUrl="https://huuhoa-laptop/SecureContact/ContactService.svc?wsdl" />
+    <MetadataFile FileName="ContactService.xsd" MetadataType="Schema" ID="5d4d88f2-20b8-48c2-9802-4024d4e15868" SourceId="1" SourceUrl="https://huuhoa-laptop/SecureContact/ContactService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ContactService.disco" MetadataType="Disco" ID="d69f24ce-285f-4a44-a7a1-d9141764f11d" SourceId="1" SourceUrl="https://huuhoa-laptop/SecureContact/ContactService.svc?disco" />
+    <MetadataFile FileName="ContactService1.xsd" MetadataType="Schema" ID="88bdd26e-60a5-4d7f-bc99-276134abc531" SourceId="1" SourceUrl="https://huuhoa-laptop/SecureContact/ContactService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ContactService2.xsd" MetadataType="Schema" ID="cb1222c4-bdc8-4d66-a1d8-1e09ff4844ae" SourceId="1" SourceUrl="https://huuhoa-laptop/SecureContact/ContactService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
