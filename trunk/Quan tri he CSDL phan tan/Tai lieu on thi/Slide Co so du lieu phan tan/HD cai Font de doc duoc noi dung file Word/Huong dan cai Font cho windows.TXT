@@ -1,0 +1,18 @@
+Huong dan cai Font trong Win
+
+1/ Copy file vntime.ttf tu thu muc xa nen vao thu muc Windows/fonts.
+2/ Mo Start/Settings/Control Panel, kich hoat bieu tuong Fonts.
+   Font co ten ".vntime" se duoc tu dong cai vao Windows
+   va co ten o dau danh sach.
+
+Hay
+
+1/ Mo Start/Settings/Control Panel, kich hoat bieu tuong Fonts.
+2/ Trong cua so Fonts, mo menu File, chon Install new font.
+3/ Trong hop thoai Add Fonts:
+   Chi dinh o dia va thu muc chua font khi xa nen.
+   Chon font ten".vntime".
+   Bam nut OK.
+
+Cuoi cung vào 4rum tinhocmo.net Click vào nút THANKS cho bienxanh5 nhe cac ban kakaka
+
